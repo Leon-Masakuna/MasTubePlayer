@@ -1,0 +1,15 @@
+.searchbar {
+  display: flex;
+  width: 550px;
+  height: 40px;
+  border: none;
+  font-family: "arial";
+  font-size: 15px;
+  margin: 50px auto;
+  justify-content: center;
+  padding-left: 10px;
+  padding-right: 10px;
+  background: #d9d9d9;
+  border-radius: 2px;
+  outline: none;
+}
