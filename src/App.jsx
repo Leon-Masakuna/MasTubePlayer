@@ -1,9 +1,12 @@
-import './App.css'
+import "./App.css";
+import Navbar from "./components/Navbar";
+import Searchbar from "./components/Searchbar";
 
 export default function App() {
   return (
-    <main>
-      React ⚛️ + Vite ⚡ + Replit 🌀
-    </main>
-  )
+    <>
+      <Navbar />
+      <Searchbar />
+    </>
+  );
 }
