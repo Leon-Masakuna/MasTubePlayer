@@ -1,12 +1,13 @@
-import "./App.css";
-import Navbar from "./components/Navbar";
-import Searchbar from "./components/Searchbar";
+import './App.css'
+import ApiRequest from './components/ApiRequest'
+import Navbar from './components/Navbar'
+import Searchbar from './components/Searchbar'
 
 export default function App() {
-  return (
-    <>
-      <Navbar />
-      <Searchbar />
-    </>
-  );
+   return (
+      <>
+         <Navbar />
+         <ApiRequest />
+      </>
+   )
 }

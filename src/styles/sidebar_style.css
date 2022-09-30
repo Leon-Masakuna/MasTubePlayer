@@ -1,0 +1,7 @@
+.sidebar {
+   background-color: rgb(217, 217, 217, 100%);
+   border-right: 1px solid rgb(103, 34, 128, 100%);
+}
+.sidebar__title {
+   margin: 50px 35px;
+}

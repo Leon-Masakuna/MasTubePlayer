@@ -1,0 +1,10 @@
+.main_side {
+   display: flex;
+   flex-direction: column;
+   overflow-y: scroll;
+}
+
+.grid_sidebar_searchbar {
+   display: grid;
+   grid-template-columns: repeat(2, 15% 85%);
+}
