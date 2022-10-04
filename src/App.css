@@ -1,10 +1,10 @@
-main {
+/* main {
   text-align: center;
   vertical-align: center;
   line-height: 100vh;
-}
+} */
 
 body {
-  background: #ffffff;
-  border: 1px solid #672280;
+   background: #ffffff;
+   border: 1px solid #672280;
 }
