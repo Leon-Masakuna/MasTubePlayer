@@ -23,19 +23,26 @@
 } */
 
 .card-items:hover {
-   background: #ffa100;
+   /*  background: #ffa100;
    transform: scale(1.05);
    object-fit: cover;
-   text-align: center;
+   text-align: center; */
    cursor: pointer;
 }
 
 .image {
-   width: 180px;
-   height: 180px;
+   width: 230px;
+   height: 200px;
 }
 
 .image_space {
    display: grid;
    grid-template-columns: repeat(4, 25%);
+   margin-top: 100px;
+}
+
+h3,
+h4 {
+   text-align: left;
+   margin-left: 10px;
 }

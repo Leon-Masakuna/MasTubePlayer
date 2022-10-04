@@ -1,6 +1,7 @@
 import React from 'react'
 import logo from '../assets/tubePlayer.jpg'
 import '../styles/navbar_style.css'
+import Searchbar from './Searchbar'
 
 const Navbar = () => {
    return (
@@ -10,9 +11,9 @@ const Navbar = () => {
                <img src={logo} className="nav--logo" alt="logo" />
                <p className="navbar__site__title">MasTubePlayer</p>
             </div>
+            <Searchbar />
             <div className="navbar__logo__sign__up">
                <div className="empty__space"></div>
-               <p className="navbar__sign__up">Log-in</p>
             </div>
          </nav>
       </>

@@ -11,8 +11,8 @@ const Card = ({ video }) => {
                   src={'https://i.ytimg.com/vi/yzTuBuRdAyA/hqdefault.jpg'}
                   alt=""
                />
-               <h3></h3>
-               <h4></h4>
+               <h3>Lionel Messi</h3>
+               <h4>Janvier 2022</h4>
             </div>
             <div className="card__items">
                <img
@@ -20,8 +20,8 @@ const Card = ({ video }) => {
                   src={'https://i.ytimg.com/vi/yzTuBuRdAyA/hqdefault.jpg'}
                   alt=""
                />
-               <h3></h3>
-               <h4></h4>
+               <h3>Lionel Messi</h3>
+               <h4>Janvier 2022</h4>
             </div>
             <div className="card__items">
                <img
@@ -29,8 +29,8 @@ const Card = ({ video }) => {
                   src={'https://i.ytimg.com/vi/yzTuBuRdAyA/hqdefault.jpg'}
                   alt=""
                />
-               <h3></h3>
-               <h4></h4>
+               <h3>Lionel Messi</h3>
+               <h4>Janvier 2022</h4>
             </div>
             <div className="card__items">
                <img
@@ -38,8 +38,8 @@ const Card = ({ video }) => {
                   src={'https://i.ytimg.com/vi/yzTuBuRdAyA/hqdefault.jpg'}
                   alt=""
                />
-               <h3></h3>
-               <h4></h4>
+               <h3>Lionel Messi</h3>
+               <h4>Janvier 2022</h4>
             </div>
             <div className="card__items">
                <img
@@ -47,8 +47,8 @@ const Card = ({ video }) => {
                   src={'https://i.ytimg.com/vi/yzTuBuRdAyA/hqdefault.jpg'}
                   alt=""
                />
-               <h3></h3>
-               <h4></h4>
+               <h3>Lionel Messi</h3>
+               <h4>Janvier 2022</h4>
             </div>
             <div className="card__items">
                <img
@@ -56,8 +56,8 @@ const Card = ({ video }) => {
                   src={'https://i.ytimg.com/vi/yzTuBuRdAyA/hqdefault.jpg'}
                   alt=""
                />
-               <h3></h3>
-               <h4></h4>
+               <h3>Lionel Messi</h3>
+               <h4>Janvier 2022</h4>
             </div>
             <div className="card__items">
                <img
@@ -65,8 +65,8 @@ const Card = ({ video }) => {
                   src={'https://i.ytimg.com/vi/yzTuBuRdAyA/hqdefault.jpg'}
                   alt=""
                />
-               <h3></h3>
-               <h4></h4>
+               <h3>Lionel Messi</h3>
+               <h4>Janvier 2022</h4>
             </div>
             <div className="card__items">
                <img
@@ -74,8 +74,8 @@ const Card = ({ video }) => {
                   src={'https://i.ytimg.com/vi/yzTuBuRdAyA/hqdefault.jpg'}
                   alt=""
                />
-               <h3></h3>
-               <h4></h4>
+               <h3>Lionel Messi</h3>
+               <h4>Janvier 2022</h4>
             </div>
             <div className="card__items">
                <img
@@ -83,8 +83,8 @@ const Card = ({ video }) => {
                   src={'https://i.ytimg.com/vi/yzTuBuRdAyA/hqdefault.jpg'}
                   alt=""
                />
-               <h3></h3>
-               <h4></h4>
+               <h3>Lionel Messi</h3>
+               <h4>Janvier 2022</h4>
             </div>
          </div>
       </>
