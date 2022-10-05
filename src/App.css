@@ -5,6 +5,9 @@
 } */
 
 body {
-   background: #ffffff;
-   border: 1px solid #672280;
+   background: #672280;
+}
+
+.login__main__container {
+   margin-top: 17%;
 }

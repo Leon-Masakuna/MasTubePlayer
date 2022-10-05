@@ -17,9 +17,9 @@ const ApiRequest = () => {
          .then((video) => {
             setUsers(video)
          })
-
-      console.log(fetchData)
    }
+
+   console.log(fetchData)
 
    //render
    return (
