@@ -14,7 +14,7 @@ const Logout = () => {
          <div className="login__ui">
             <GoogleLogout
                clientId={clientId}
-               buttonText={'Logout'}
+               buttonText={'Logout to disconnect your account'}
                onLogoutSuccess={onSucces}
             />
          </div>
