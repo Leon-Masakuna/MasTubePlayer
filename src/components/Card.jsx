@@ -2,92 +2,25 @@ import React from 'react'
 import '../styles/card_style.css'
 
 const Card = ({ video }) => {
+   const chanelImage = localStorage.getItem('item')
+
    return (
-      <>
+      <div>
          <div className="image_space">
             <div className="card__items">
                <img
                   className="image"
-                  src={'https://i.ytimg.com/vi/yzTuBuRdAyA/hqdefault.jpg'}
-                  alt=""
+                  src={video?.snippet?.thumbnails?.medium?.url}
+                  alt="image video"
                />
-               <h3>Lionel Messi</h3>
-               <h4>Janvier 2022</h4>
-            </div>
-            <div className="card__items">
-               <img
-                  className="image"
-                  src={'https://i.ytimg.com/vi/yzTuBuRdAyA/hqdefault.jpg'}
-                  alt=""
-               />
-               <h3>Lionel Messi</h3>
-               <h4>Janvier 2022</h4>
-            </div>
-            <div className="card__items">
-               <img
-                  className="image"
-                  src={'https://i.ytimg.com/vi/yzTuBuRdAyA/hqdefault.jpg'}
-                  alt=""
-               />
-               <h3>Lionel Messi</h3>
-               <h4>Janvier 2022</h4>
-            </div>
-            <div className="card__items">
-               <img
-                  className="image"
-                  src={'https://i.ytimg.com/vi/yzTuBuRdAyA/hqdefault.jpg'}
-                  alt=""
-               />
-               <h3>Lionel Messi</h3>
-               <h4>Janvier 2022</h4>
-            </div>
-            <div className="card__items">
-               <img
-                  className="image"
-                  src={'https://i.ytimg.com/vi/yzTuBuRdAyA/hqdefault.jpg'}
-                  alt=""
-               />
-               <h3>Lionel Messi</h3>
-               <h4>Janvier 2022</h4>
-            </div>
-            <div className="card__items">
-               <img
-                  className="image"
-                  src={'https://i.ytimg.com/vi/yzTuBuRdAyA/hqdefault.jpg'}
-                  alt=""
-               />
-               <h3>Lionel Messi</h3>
-               <h4>Janvier 2022</h4>
-            </div>
-            <div className="card__items">
-               <img
-                  className="image"
-                  src={'https://i.ytimg.com/vi/yzTuBuRdAyA/hqdefault.jpg'}
-                  alt=""
-               />
-               <h3>Lionel Messi</h3>
-               <h4>Janvier 2022</h4>
-            </div>
-            <div className="card__items">
-               <img
-                  className="image"
-                  src={'https://i.ytimg.com/vi/yzTuBuRdAyA/hqdefault.jpg'}
-                  alt=""
-               />
-               <h3>Lionel Messi</h3>
-               <h4>Janvier 2022</h4>
-            </div>
-            <div className="card__items">
-               <img
-                  className="image"
-                  src={'https://i.ytimg.com/vi/yzTuBuRdAyA/hqdefault.jpg'}
-                  alt=""
-               />
-               <h3>Lionel Messi</h3>
-               <h4>Janvier 2022</h4>
+               <p className="video__title">{video?.snippet?.title}</p>
+               <div className="channel__logo__title">
+                  <img src={chanelImage} alt="chanel image" />
+                  <p>{video?.snippet?.channelTitle}</p>
+               </div>
             </div>
          </div>
-      </>
+      </div>
    )
 }
 

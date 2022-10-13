@@ -1,15 +1,30 @@
 import React from 'react'
-import '../styles/login_style.css'
 import { GoogleLogin } from 'react-google-login'
 import { Link } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
+import '../styles/login_style.css'
 
 const Login = () => {
    const clientId =
       '207208175376-74k3vacevfg0a05ju6tuld9ejsogvpm9.apps.googleusercontent.com'
 
+   const navigate = useNavigate()
    const onSucces = (res) => {
-      console.log('LOGIN success! Current user: ', res)
-      console.log(res.profileObj)
+      /* console.log('LOGIN success! Current user: ', res)
+      console.log(res.profileObj['imageUrl'])
+
+      console.log('Access Token : ', res.accessToken) */
+
+      const profilePicture = res.profileObj['imageUrl']
+      localStorage.setItem('item', profilePicture)
+      /* const profileGivenName = res.profileObj['givenName']
+      localStorage.setItem('itemName', profileGivenName)*/
+      const accessToken = res.accessToken
+      localStorage.setItem('token', accessToken)
+
+      /* console.log('accessToken : ', accessToken) */
+
+      navigate('/dashbord')
    }
 
    const onFaillure = (res) => {
@@ -24,42 +39,18 @@ const Login = () => {
          <div className="login__ui">
             <h2 className="login__title">{title}</h2>
             <h4 className="login__phrase">{accessPhrase}</h4>
-            {/* <h2 className="login__title">{title}</h2>
-               <h4 className="login__phrase">{accessPhrase}</h4>
-               <form action="">
-               <div className="login__inputs">
-                  <div>
-                     <input
-                        type="email"
-                        name=""
-                        placeholder="Adresse e-mail"
-                        required
-                     />
-                  </div>
-                  <div>
-                     <input
-                        type="password"
-                        name=""
-                        placeholder="Mot de passe"
-                        required
-                     />
-                  </div>
-               </div>
-               <div>
-                  <button className="login__button">Se Connecter</button>
-               </div>
-            </form> */}
 
-            {/* <Link className="link__decoration" to={'/videos_space'}> */}
-            <GoogleLogin
-               clientId={clientId}
-               buttonText="Login with google account and watch your videos"
-               onSuccess={onSucces}
-               onFailure={onFaillure}
-               cookiePolicy={'single_host_origin'}
-               isSignedIn={true}
-            />
-            {/* </Link> */}
+            <Link className="link__decoration" to={'/dashbord'}>
+               <GoogleLogin
+                  clientId={clientId}
+                  buttonText="Login with google account and watch your videos"
+                  onSuccess={onSucces}
+                  onFailure={onFaillure}
+                  cookiePolicy={'single_host_origin'}
+                  isSignedIn={false}
+                  scope="https://www.googleapis.com/auth/youtube"
+               />
+            </Link>
          </div>
       </div>
    )
