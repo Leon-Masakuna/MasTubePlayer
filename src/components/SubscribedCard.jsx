@@ -1,9 +1,7 @@
 import React from 'react'
-import '../styles/card_style.css'
 
-const Card = ({ video }) => {
+const SubscribedCard = ({ video }) => {
    const chanelImage = localStorage.getItem('item')
-
    return (
       <div>
          <div className="image_space">
@@ -27,4 +25,4 @@ const Card = ({ video }) => {
    )
 }
 
-export default Card
+export default SubscribedCard

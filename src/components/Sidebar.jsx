@@ -11,8 +11,8 @@ const Sidebar = () => {
                <Link className="sidebar__submission" to={'/dashbord'}>
                   <h3 className="sidebar__sub">Home</h3>
                </Link>
-               <Link className="sidebar__submission" to={'/dashbord'}>
-                  <h3 className="sidebar__sub">Submission</h3>
+               <Link className="sidebar__submission" to={'/SubscribedVideos'}>
+                  <h3 className="sidebar__sub">Subscription</h3>
                </Link>
             </div>
             <div>

@@ -2,9 +2,9 @@ import React from 'react'
 import { useParams } from 'react-router-dom'
 import Navbar from './Navbar'
 import Sidebar from './Sidebar'
-import '../styles/videoLecture__style.css'
+import '../styles/videoLecture_style.css'
 
-const VideoLecture = () => {
+const VideoLecture = (video) => {
    const { id } = useParams()
    console.log(id)
    return (
@@ -20,6 +20,8 @@ const VideoLecture = () => {
                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                /* allowfullscreen */
             ></iframe>
+            {/* <p className="video__title">{video?.snippet?.title}</p>
+            <p>{video?.snippet?.channelTitle}</p> */}
          </div>
       </div>
    )
