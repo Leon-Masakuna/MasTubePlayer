@@ -31,18 +31,49 @@
 }
 
 .image {
-   width: 230px;
-   height: 200px;
+   width: 200px;
+   height: 160px;
+}
+
+.image:hover,
+.video__title:hover {
+   cursor: pointer;
 }
 
 .image_space {
    display: grid;
    grid-template-columns: repeat(4, 25%);
-   margin-top: 100px;
 }
 
 h3,
 h4 {
    text-align: left;
    margin-left: 10px;
+}
+
+.image__preview {
+   display: flex;
+   flex-wrap: wrap;
+   justify-content: center;
+   align-items: center;
+   text-align: center;
+   margin: auto;
+   gap: 15px;
+   padding-top: 40px;
+   padding-bottom: 30px;
+   width: 1000px;
+}
+
+.image__container {
+   margin-top: 70px;
+}
+
+.channel__logo__title {
+   display: flex;
+}
+
+.channel__logo__title img {
+   width: 40px;
+   height: 40px;
+   border-radius: 50%;
 }

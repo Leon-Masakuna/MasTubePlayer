@@ -45,6 +45,12 @@ nav {
    align-items: center;
 }
 
+.empty__space .profile__picture {
+   width: 100%;
+   height: 100%;
+   border-radius: 50%;
+}
+
 .navbar__sign__up {
    background-color: white;
    color: #000000;
