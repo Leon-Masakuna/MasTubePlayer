@@ -6,6 +6,7 @@ import Searchbar from './Searchbar'
 const Navbar = () => {
    const profileImage = localStorage.getItem('item')
    const profileName = localStorage.getItem('itemName')
+   console.log(profileImage)
 
    return (
       <>
@@ -17,7 +18,13 @@ const Navbar = () => {
             <Searchbar />
             <div className="navbar__logo__sign__up">
                <div className="empty__space">
-                  <img className="profile__picture" src={profileImage} alt="" />
+                  <img
+                     className="profile__picture"
+                     src=/* "https://lh3.googleusercontent.com/a/ALm5wu09qOlb_I894jcgStIfVOpUq-XuV3GPhtlMHZ48DQ=s96-c" */ {
+                        profileImage
+                     }
+                     alt=""
+                  />
                   {/* <span>{profileName}</span> */}
                </div>
             </div>
