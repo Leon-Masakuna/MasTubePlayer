@@ -15,7 +15,10 @@ const Card = ({ video }) => {
                />
                <p className="video__title">{video?.snippet?.title}</p>
                <div className="channel__logo__title">
-                  <img src={chanelImage} alt="chanel image" />
+                  <img
+                     src={video?.snippet?.thumbnails?.standard?.url}
+                     alt="chanel image"
+                  />
                   <p>{video?.snippet?.channelTitle}</p>
                </div>
             </div>
