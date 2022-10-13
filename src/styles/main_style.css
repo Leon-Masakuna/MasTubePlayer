@@ -11,3 +11,8 @@
    display: grid;
    grid-template-columns: repeat(2, 30% 70%);
 }
+
+.video__link__style {
+   text-decoration: none;
+   color: black;
+}
