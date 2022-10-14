@@ -93,12 +93,13 @@ input {
 }
 
 .logout__container {
-   width: 60%;
+   width: 88%;
    display: flex;
    flex-direction: column;
    justify-content: center;
    align-items: center;
    margin-left: 7px;
+   border-radius: 5px;
 }
 
 .sidebar__logout {

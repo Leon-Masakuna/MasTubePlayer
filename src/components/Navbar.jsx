@@ -2,6 +2,7 @@ import React from 'react'
 import logo from '../assets/tubePlayer.jpg'
 import '../styles/navbar_style.css'
 import Searchbar from './Searchbar'
+import Logout from './Logout'
 
 const Navbar = () => {
    const profileImage = localStorage.getItem('item')
@@ -17,6 +18,9 @@ const Navbar = () => {
             </div>
             <Searchbar />
             <div className="navbar__logo__sign__up">
+               <div>
+                  <Logout />
+               </div>
                <div className="empty__space">
                   <img
                      className="profile__picture"
