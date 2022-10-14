@@ -36,7 +36,8 @@ const Subscription = () => {
                      {videos.map((item, id) => (
                         <Link
                            className="video__link__style"
-                           to={`/videoplay/${item.id}`}
+                           to={'/subscribedVideosLecture'}
+                           /* to={`/videoplay/${item.id}`} */
                            key={id}
                         >
                            <SubscribedCard key={id} video={item} />

@@ -11,6 +11,8 @@ const Logout = () => {
    const onSucces = () => {
       console.log('Logout Successfully')
       navigate('/')
+      localStorage.removeItem('item')
+      localStorage.removeItem('token')
    }
    return (
       <div className="logout__container">

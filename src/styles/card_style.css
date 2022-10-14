@@ -11,6 +11,12 @@
    font-size: 14px;
 }
 
+.card__items:hover {
+   background-color: #672280;
+   border: 1px solid rgb(217, 217, 217, 100%);
+   color: rgb(217, 217, 217, 100%);
+}
+
 /* .card__items__preview {
    display: flex;
    flex-wrap: wrap;
