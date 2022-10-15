@@ -11,7 +11,7 @@ const Channels = () => {
 
    //behavior
    const key = 'AIzaSyAjYZj_Ga7caIIP_HlQ3Qi5HmgPTG1LGVI'
-   const fecthData = `https://youtube.googleapis.com/youtube/v3/subscriptions?part=snippet%2CcontentDetails&maxResults=33&mine=true&key=${key}`
+   const fecthData = `https://youtube.googleapis.com/youtube/v3/subscriptions?part=snippet%2CcontentDetails&maxResults=45&mine=true&key=${key}`
    const accessToken = localStorage.getItem('token')
    console.log('Main component : ', accessToken)
 

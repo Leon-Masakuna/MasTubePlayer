@@ -42,10 +42,16 @@
 .home__title,
 .sub__title {
    color: #672280;
+   background-color: white;
 }
 
 .home__title:hover,
 .sub__title:hover {
    background-color: #672280;
    color: white;
+}
+
+.is__active {
+   background-color: white;
+   color: #672280;
 }
