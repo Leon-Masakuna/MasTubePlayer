@@ -2,10 +2,10 @@ import React from 'react'
 import Navbar from './Navbar'
 import Sidebar from './Sidebar'
 import { useEffect, useState } from 'react'
-import SubscribedCard from './SubscribedCard'
+import ChannelCard from './ChannelCard'
 import { Link } from 'react-router-dom'
 
-const Subscription = () => {
+const Channels = () => {
    //state
    const [videos, setVideos] = useState([])
 
@@ -24,7 +24,7 @@ const Subscription = () => {
          .then((data) => setVideos(data.items))
    }, [])
 
-   console.log(videos)
+   console.log('videos abonnées : ', videos)
    return (
       <div>
          <Navbar />
@@ -36,11 +36,11 @@ const Subscription = () => {
                      {videos.map((item, id) => (
                         <Link
                            className="video__link__style"
-                           to={'/subscribedVideosLecture'}
+                           to={'/chanelVideosPage'}
                            /* to={`/videoplay/${item.id}`} */
                            key={id}
                         >
-                           <SubscribedCard key={id} video={item} />
+                           <ChannelCard key={id} video={item} />
                         </Link>
                      ))}
                   </div>
@@ -51,4 +51,4 @@ const Subscription = () => {
    )
 }
 
-export default Subscription
+export default Channels

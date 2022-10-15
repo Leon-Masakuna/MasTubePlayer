@@ -1,11 +1,11 @@
 import React from 'react'
 import { useParams } from 'react-router-dom'
-import { useEffect, useState } from 'react'
+/* import { useEffect, useState } from 'react' */
 import Navbar from './Navbar'
 import Sidebar from './Sidebar'
-import '../styles/videoLecture_style.css'
+import '../styles/MainVideoReading_style.css'
 
-const VideoLecture = (video) => {
+const MainVideoReading = (video) => {
    //States
    const { id } = useParams()
    console.log(id)
@@ -55,4 +55,4 @@ const VideoLecture = (video) => {
    )
 }
 
-export default VideoLecture
+export default MainVideoReading

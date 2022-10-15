@@ -2,7 +2,7 @@ import React from 'react'
 import Navbar from './Navbar'
 import Sidebar from './Sidebar'
 
-const SubscriptionDisplay = () => {
+const ChannelCardVideos = () => {
    return (
       <div>
          <Navbar />
@@ -32,4 +32,4 @@ const SubscriptionDisplay = () => {
    )
 }
 
-export default SubscriptionDisplay
+export default ChannelCardVideos

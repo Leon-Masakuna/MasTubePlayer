@@ -13,7 +13,7 @@ const Sidebar = () => {
                      Home
                   </h3>
                </Link>
-               <Link className="sidebar__submission" to={'/SubscribedVideos'}>
+               <Link className="sidebar__submission" to={'/channelPage'}>
                   <h3 className="sidebar__sub home__bg sub__title">
                      Subscription
                   </h3>
