@@ -8,20 +8,23 @@ const Sidebar = () => {
       <div className="sidebar">
          <div className="sidebar__logout">
             <div>
-               <Link className="sidebar__submission" to={'/dashbord'}>
+               <Link
+                  className="sidebar__submission is__active"
+                  to={'/dashbord'}
+               >
                   <h3 className="sidebar__sub home__bg home__margin home__title">
                      Home
                   </h3>
                </Link>
-               <Link className="sidebar__submission" to={'/channelPage'}>
+               <Link
+                  className="sidebar__submission is__active"
+                  to={'/channelPage'}
+               >
                   <h3 className="sidebar__sub home__bg sub__title">
                      Subscription
                   </h3>
                </Link>
             </div>
-            {/* <div>
-               <Logout />
-            </div> */}
          </div>
       </div>
    )

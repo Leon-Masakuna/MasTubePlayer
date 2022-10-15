@@ -12,7 +12,7 @@ const Main = () => {
 
    //behavior
    const key = 'AIzaSyAjYZj_Ga7caIIP_HlQ3Qi5HmgPTG1LGVI'
-   const fecthData = `https://youtube.googleapis.com/youtube/v3/videos?part=snippet%2CcontentDetails%2Cstatistics&chart=mostPopular&maxResults=30&key=${key}`
+   const fecthData = `https://youtube.googleapis.com/youtube/v3/videos?part=snippet%2CcontentDetails%2Cstatistics&chart=mostPopular&maxResults=45&regionCode=FR&key=${key}`
 
    const accessToken = localStorage.getItem('token')
    console.log('Main component : ', accessToken)
