@@ -1,6 +1,6 @@
 import React from 'react'
 
-const SubscribedCard = ({ video }) => {
+const ChannelCard = ({ video }) => {
    const chanelImage = localStorage.getItem('item')
    return (
       <div>
@@ -25,4 +25,4 @@ const SubscribedCard = ({ video }) => {
    )
 }
 
-export default SubscribedCard
+export default ChannelCard
