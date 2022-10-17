@@ -1,14 +1,11 @@
 import React from 'react'
-import { useParams } from 'react-router-dom'
-/* import { useEffect, useState } from 'react' */
 import Navbar from './Navbar'
 import Sidebar from './Sidebar'
-import '../styles/MainVideoReading_style.css'
+import { useParams } from 'react-router-dom'
 
-const MainVideoReading = () => {
-   //States
-   const { id } = useParams()
-   console.log(id)
+const ChannelCardVideosReading = () => {
+   const { videoId } = useParams()
+   console.log(videoId)
    return (
       <div>
          <Navbar />
@@ -17,7 +14,7 @@ const MainVideoReading = () => {
             <iframe
                width="560"
                height="315"
-               src={`https://www.youtube.com/embed/${id}`}
+               src={`https://www.youtube.com/embed/${videoId}`}
                title="YouTube video player"
                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                /* allowfullscreen */
@@ -29,4 +26,4 @@ const MainVideoReading = () => {
    )
 }
 
-export default MainVideoReading
+export default ChannelCardVideosReading

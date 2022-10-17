@@ -26,28 +26,33 @@ const Channels = () => {
 
    console.log('videos abonnées : ', videos)
    return (
-      <div>
-         <Navbar />
-         <Sidebar />
+      <>
          <div>
-            <div className="grid_sidebar_searchbar">
-               <div className="main_side">
-                  <div className="image__preview image__container">
-                     {videos.map((item, id) => (
-                        <Link
-                           className="video__link__style"
-                           to={'/chanelVideosPage'}
-                           /* to={`/videoplay/${item.id}`} */
-                           key={id}
-                        >
-                           <ChannelCard key={id} video={item} />
-                        </Link>
-                     ))}
+            <Navbar />
+            <Sidebar />
+            <div>
+               <div className="grid_sidebar_searchbar">
+                  <div className="main_side">
+                     <div className="image__preview image__container">
+                        {videos.map((item, id) => {
+                           const channelId = item.snippet.resourceId.channelId
+                           return (
+                              <Link
+                                 className="video__link__style"
+                                 to={`/chanelVideosPage/${channelId}`}
+                                 /* to={`/videoplay/${item.id}`} */
+                                 key={id}
+                              >
+                                 <ChannelCard key={id} video={item} />
+                              </Link>
+                           )
+                        })}
+                     </div>
                   </div>
                </div>
             </div>
          </div>
-      </div>
+      </>
    )
 }
 

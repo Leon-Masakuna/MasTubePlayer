@@ -7,6 +7,7 @@ import HomePage from './pages/HomePage'
 import MainVideoReadingPage from './pages/MainVideoReadingPage'
 import ChannelPage from './pages/ChannelPage'
 import ChanelVideosPage from './pages/ChanelVideosPage'
+import ChannelCardVideosReading from './components/ChannelCardVideosReading'
 
 const clientId =
    '207208175376-74k3vacevfg0a05ju6tuld9ejsogvpm9.apps.googleusercontent.com'
@@ -30,7 +31,14 @@ export default function App() {
             <Route path="/*" element={<HomePage />} />
             <Route path="/videoplay/:id" element={<MainVideoReadingPage />} />
             <Route path="/channelPage" element={<ChannelPage />} />
-            <Route path="/chanelVideosPage" element={<ChanelVideosPage />} />
+            <Route
+               path="/chanelVideosPage/:channelId"
+               element={<ChanelVideosPage />}
+            />
+            <Route
+               path="/chanelCardVideos/:videoId"
+               element={<ChannelCardVideosReading />}
+            />
          </Routes>
       </div>
    )
