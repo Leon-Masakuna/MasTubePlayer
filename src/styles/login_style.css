@@ -1,8 +1,4 @@
 .login__ui {
-   /* width: 475px;
-   height: 430px;
-   background: #672280;
-   border-radius: 10px; */
    width: 400px;
    height: 100vh;
    display: flex;
@@ -38,15 +34,6 @@
    margin-bottom: 10%;
 }
 
-/* .login__inputs {
-   display: flex;
-   flex-direction: column;
-   justify-content: center;
-   align-items: center;
-   height: 100vh;
-   margin: auto;
-} */
-
 input {
    background: #d9d9d9;
    width: 344px;
@@ -67,20 +54,6 @@ input {
 
 .login__button {
    text-align: center;
-   /* background: #d9d9d9;
-   width: 183px;
-   height: 39px;
-   margin-left: 146px;
-   margin-top: 45px;
-   border: none;
-   outline: none;
-   border-radius: 5px;
-   color: #672280;
-   font-family: 'Poppins', sans-serif;
-   font-style: normal;
-   font-weight: 100;
-   font-size: 16px;
-   font-weight: 800; */
 }
 
 .login__button:hover {
@@ -104,4 +77,8 @@ input {
 
 .sidebar__logout {
    margin: auto;
+}
+
+.logout__ui {
+   height: 45px;
 }
