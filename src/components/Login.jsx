@@ -3,6 +3,7 @@ import { GoogleLogin } from 'react-google-login'
 import { Link } from 'react-router-dom'
 import { useNavigate } from 'react-router-dom'
 import '../styles/login_style.css'
+import { render } from '@testing-library/react'
 
 const Login = () => {
    const clientId =
@@ -17,8 +18,6 @@ const Login = () => {
 
       const profilePicture = res.profileObj['imageUrl']
       localStorage.setItem('item', profilePicture)
-      /* const profileGivenName = res.profileObj['givenName']
-      localStorage.setItem('itemName', profileGivenName)*/
       const accessToken = res.accessToken
       localStorage.setItem('token', accessToken)
 
@@ -43,6 +42,16 @@ const Login = () => {
             <Link className="link__decoration" to={'/dashbord'}>
                <GoogleLogin
                   clientId={clientId}
+                  render={(renderProps) => (
+                     <button
+                        className="btn-login"
+                        onClick={renderProps.onClick}
+                        disabled={renderProps.disabled}
+                     >
+                        <i className="fa-brands fa-google google-icon"></i>{' '}
+                        Login with your google account
+                     </button>
+                  )}
                   buttonText="Login with google account and watch your videos"
                   onSuccess={onSucces}
                   onFailure={onFaillure}

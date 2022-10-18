@@ -13,7 +13,8 @@ const Navbar = () => {
       <>
          <nav>
             <div className="navbar__logo__name">
-               <img src={logo} className="nav--logo" alt="logo" />
+               {/* <img src={logo} className="nav--logo" alt="logo" /> */}
+               <i className="fa-brands fa-youtube nav--logo"></i>
                <p className="navbar__site__title">MasTubePlayer</p>
             </div>
             <Searchbar />
