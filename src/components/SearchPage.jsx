@@ -25,7 +25,7 @@ const SearchPage = () => {
 
    useEffect(() => {
       fectData()
-   }, [])
+   }, [searchWord])
 
    return (
       <div>
