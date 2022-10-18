@@ -22,6 +22,7 @@ const Login = () => {
       localStorage.setItem('token', accessToken)
 
       /* console.log('accessToken : ', accessToken) */
+      console.log('image : ', profilePicture)
 
       navigate('/dashbord')
    }
