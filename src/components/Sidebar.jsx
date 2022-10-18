@@ -13,7 +13,7 @@ const Sidebar = () => {
                   to={'/dashbord'}
                >
                   <h3 className="sidebar__sub home__bg home__margin home__title">
-                     Home
+                     <i className="fa-solid fa-house"></i> {' Home'}
                   </h3>
                </Link>
                <Link
@@ -21,7 +21,8 @@ const Sidebar = () => {
                   to={'/channelPage'}
                >
                   <h3 className="sidebar__sub home__bg sub__title">
-                     Subscription
+                     <i className="fa-brands fa-youtube"></i>
+                     {' Subscription'}
                   </h3>
                </Link>
             </div>
