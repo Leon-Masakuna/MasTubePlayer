@@ -6,21 +6,25 @@ import '../styles/searchbar_style.css'
 const Searchbar = () => {
    const [inputSearch, setInputSearch] = useState('')
 
+   const handleChange = (e) => {
+      setInputSearch(e.target.value)
+   }
+
    return (
-      <div className="searchbar__container">
+      <form className="searchbar__container">
          <input
             className="searchbar"
             type="search"
             placeholder="Entrez le titre d'une vidéo"
-            onChange={(e) => setInputSearch(e.target.value)}
+            onChange={handleChange}
             value={inputSearch}
          />
          <Link className="button_link" to={`/searchpage${inputSearch}`}>
-            <button className="searchbar searchbar__button" type="button">
+            <button className="searchbar searchbar__button" type="submit">
                search
             </button>
          </Link>
-      </div>
+      </form>
    )
 }
 
