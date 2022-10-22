@@ -39,8 +39,8 @@ const Login = () => {
       console.log('LOGIN FAILLURE! res:', res)
    }
 
-   const title = 'Connexion'
-   const accessPhrase = 'Accéder à MasTubePlayer'
+   const title = 'Connection'
+   const accessPhrase = 'Access to MasTubePlayer'
 
    return (
       <div className="login__container">
