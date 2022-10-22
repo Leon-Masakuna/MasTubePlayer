@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { GoogleLogin } from 'react-google-login'
 import { Link } from 'react-router-dom'
 import { useNavigate } from 'react-router-dom'
@@ -26,6 +26,14 @@ const Login = () => {
 
       navigate('/dashbord')
    }
+
+   const accessToken = localStorage.getItem('token')
+
+   useEffect(() => {
+      if (!accessToken) {
+         navigate('/')
+      }
+   }, [accessToken, navigate])
 
    const onFaillure = (res) => {
       console.log('LOGIN FAILLURE! res:', res)
