@@ -1,7 +1,6 @@
 import React from 'react'
 import { useState, useEffect } from 'react'
 import Card from './Card'
-// import Sidebar from './Sidebar'
 import { Link, useNavigate } from 'react-router-dom'
 import '../styles/main_style.css'
 import '../styles/card_style.css'
