@@ -9,6 +9,7 @@ import ChannelPage from './pages/ChannelPage'
 import ChanelVideosPage from './pages/ChanelVideosPage'
 import ChannelCardVideosReading from './components/ChannelCardVideosReading'
 import SearchPage from './components/SearchPage'
+import SearchResultPage from './pages/SearchResultPage'
 
 const clientId =
    '207208175376-74k3vacevfg0a05ju6tuld9ejsogvpm9.apps.googleusercontent.com'
@@ -40,7 +41,10 @@ export default function App() {
                path="/chanelCardVideos/:videoId"
                element={<ChannelCardVideosReading />}
             />
-            <Route path="/searchpage:searchWord" element={<SearchPage />} />
+            <Route
+               path="/searchpage:searchWord"
+               element={<SearchResultPage />}
+            />
          </Routes>
       </div>
    )
