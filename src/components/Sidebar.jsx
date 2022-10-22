@@ -1,5 +1,5 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
+import { Link, NavLink } from 'react-router-dom'
 import '../styles/sidebar_style.css'
 /* import Logout from './Logout' */
 
@@ -8,15 +8,19 @@ const Sidebar = () => {
       <div className="sidebar">
          <div className="sidebar__logout">
             <div>
-               <Link
+               <NavLink
                   className="sidebar__submission is__active"
                   to={'/dashbord'}
                >
                   <h3 className="sidebar__sub home__bg home__margin home__title">
                      <i className="fa-solid fa-house"></i> {' Home'}
                   </h3>
-               </Link>
-               <Link
+                  <h3 className="home__icon">
+                     Mfeng
+                     <i className="fa-solid fa-house"></i>
+                  </h3>
+               </NavLink>
+               <NavLink
                   className="sidebar__submission is__active"
                   to={'/channelPage'}
                >
@@ -24,7 +28,11 @@ const Sidebar = () => {
                      <i className="fa-brands fa-youtube"></i>
                      {' Subscription'}
                   </h3>
-               </Link>
+                  <h3 className="sub__icon">
+                     Maskuna
+                     <i className="fa-brands fa-youtube"></i>
+                  </h3>
+               </NavLink>
             </div>
          </div>
       </div>
