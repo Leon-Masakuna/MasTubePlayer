@@ -1,7 +1,6 @@
 import React from 'react'
-import { useParams, Link } from 'react-router-dom'
-import Navbar from './Navbar'
-import Sidebar from './Sidebar'
+import { useParams, Link, useNavigate } from 'react-router-dom'
+// import Sidebar from './Sidebar'
 import { useState, useEffect } from 'react'
 import Card from './Card'
 
@@ -9,6 +8,7 @@ const ChannelCardVideos = () => {
    //state
    const [video, setVideo] = useState([])
    const { channelId } = useParams()
+   const navigate = useNavigate()
 
    //behavior
    const key = 'AIzaSyAjYZj_Ga7caIIP_HlQ3Qi5HmgPTG1LGVI'
@@ -26,10 +26,15 @@ const ChannelCardVideos = () => {
    }, [])
 
    console.log('videos abonnées : ', video)
+
+   useEffect(() => {
+      if (!accessToken) {
+         navigate('/')
+      }
+   }, [accessToken, navigate])
+
    return (
       <div>
-         <Navbar />
-         <Sidebar />
          <div>
             <div className="grid_sidebar_searchbar">
                <div className="main_side">

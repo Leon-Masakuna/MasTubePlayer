@@ -14,6 +14,7 @@ const Logout = () => {
       navigate('/')
       localStorage.removeItem('item')
       localStorage.removeItem('token')
+      /* document.location.reload() */
    }
    return (
       <div className="logout__container">

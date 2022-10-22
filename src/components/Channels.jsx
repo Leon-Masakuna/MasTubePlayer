@@ -1,9 +1,8 @@
 import React from 'react'
-import Navbar from './Navbar'
-import Sidebar from './Sidebar'
+// import Sidebar from './Sidebar'
 import { useEffect, useState } from 'react'
 import ChannelCard from './ChannelCard'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 
 const Channels = () => {
    //state
@@ -14,6 +13,7 @@ const Channels = () => {
    const fecthData = `https://youtube.googleapis.com/youtube/v3/subscriptions?part=snippet%2CcontentDetails&maxResults=45&mine=true&key=${key}`
    const accessToken = localStorage.getItem('token')
    console.log('Main component : ', accessToken)
+   const navigate = useNavigate()
 
    useEffect(() => {
       fetch(fecthData, {
@@ -25,11 +25,16 @@ const Channels = () => {
    }, [])
 
    console.log('videos abonnées : ', videos)
+
+   useEffect(() => {
+      if (!accessToken) {
+         navigate('/')
+      }
+   }, [accessToken, navigate])
+
    return (
       <>
          <div>
-            <Navbar />
-            <Sidebar />
             <div>
                <div className="grid_sidebar_searchbar">
                   <div className="main_side">

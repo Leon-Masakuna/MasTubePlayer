@@ -1,18 +1,25 @@
-import React from 'react'
-import { useParams } from 'react-router-dom'
+import React, { useEffect } from 'react'
+import { useParams, useNavigate } from 'react-router-dom'
 /* import { useEffect, useState } from 'react' */
-import Navbar from './Navbar'
-import Sidebar from './Sidebar'
 import '../styles/MainVideoReading_style.css'
 
 const MainVideoReading = () => {
    //States
    const { id } = useParams()
+
+   //Behavior
+   const accessToken = localStorage.getItem('token')
+   const navigate = useNavigate()
+
+   useEffect(() => {
+      if (!accessToken) {
+         navigate('/')
+      }
+   }, [accessToken, navigate])
+
    console.log(id)
    return (
       <div>
-         <Navbar />
-         <Sidebar />
          <div className="video__lecture" /* key={videos.id} */>
             <iframe
                width="560"

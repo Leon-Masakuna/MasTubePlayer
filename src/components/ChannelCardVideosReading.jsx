@@ -1,15 +1,26 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import Navbar from './Navbar'
-import Sidebar from './Sidebar'
-import { useParams } from 'react-router-dom'
+/* import Sidebar from './Sidebar' */
+import { useParams, useNavigate } from 'react-router-dom'
 
 const ChannelCardVideosReading = () => {
    const { videoId } = useParams()
    console.log(videoId)
+
+   //Behavior
+   //When disconnecting, no way to reaccess the app without access token (authentifying again)
+   const accessToken = localStorage.getItem('token')
+   const navigate = useNavigate()
+
+   useEffect(() => {
+      if (!accessToken) {
+         navigate('/')
+      }
+   }, [accessToken, navigate])
+
    return (
       <div>
          <Navbar />
-         <Sidebar />
          <div className="video__lecture" /* key={videos.id} */>
             <iframe
                width="560"

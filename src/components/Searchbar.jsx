@@ -21,7 +21,7 @@ const Searchbar = () => {
          />
          <Link className="button_link" to={`/searchpage${inputSearch}`}>
             <button className="searchbar searchbar__button" type="submit">
-               search
+               <i className="fa-solid fa-magnifying-glass"></i>
             </button>
          </Link>
       </form>

@@ -1,14 +1,15 @@
 import React from 'react'
 import { useState, useEffect } from 'react'
 import Card from './Card'
-import Sidebar from './Sidebar'
-import { Link } from 'react-router-dom'
+// import Sidebar from './Sidebar'
+import { Link, useNavigate } from 'react-router-dom'
 import '../styles/main_style.css'
 import '../styles/card_style.css'
 
 const Main = () => {
    //state
    const [videos, setVideos] = useState([])
+   const navigate = useNavigate()
 
    //behavior
    const key = 'AIzaSyAjYZj_Ga7caIIP_HlQ3Qi5HmgPTG1LGVI'
@@ -26,12 +27,17 @@ const Main = () => {
          .then((data) => setVideos(data.items))
    }, [])
 
+   useEffect(() => {
+      if (!accessToken) {
+         navigate('/')
+      }
+   }, [accessToken, navigate])
+
    console.log(videos)
    //render
    return (
       <>
          <div className="grid_sidebar_searchbar">
-            <Sidebar />
             <div className="main_side">
                <div className="image__preview image__container">
                   {videos.map((item, id) => (
