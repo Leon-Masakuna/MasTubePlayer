@@ -1,16 +1,17 @@
 import React from 'react'
-import Navbar from './Navbar'
-import Sidebar from './Sidebar'
 import '../styles/searchPage_style.css'
 import { useParams, Link } from 'react-router-dom'
 import axios from 'axios'
 import { useState, useEffect } from 'react'
 import Card from './Card'
+import { useNavigate } from 'react-router-dom'
 
 const SearchPage = () => {
+   const navigate = useNavigate()
    const { searchWord } = useParams()
    const [videoFound, setVideoFound] = useState([])
    const key = 'AIzaSyAjYZj_Ga7caIIP_HlQ3Qi5HmgPTG1LGVI'
+   const accessToken = localStorage.getItem('token')
 
    const fectData = () => {
       axios
@@ -27,18 +28,17 @@ const SearchPage = () => {
       fectData()
    }, [searchWord])
 
+   useEffect(() => {
+      if (!accessToken) {
+         navigate('/')
+      }
+   }, [accessToken, navigate])
+
    return (
       <div>
-         <div>
-            <Navbar />
-            <Sidebar />
-         </div>
          <div className="grid_sidebar_searchbar">
             <div className="main_side">
                <div className="image__preview image__container">
-                  {/* <div>
-                     <h1>Affichage des videos filtrées</h1>
-                  </div> */}
                   {videoFound.map(
                      (item, id) => (
                         /*  {
