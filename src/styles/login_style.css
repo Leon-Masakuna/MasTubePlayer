@@ -125,6 +125,7 @@
       align-items: center;
       height: 100vh;
       margin: auto;
+      margin-right: -25%;
    }
 
    .login__ui {
@@ -146,8 +147,28 @@
       color: #672280;
       font-style: normal;
       font-weight: 400;
+      font-size: 12px;
+      width: 25vh;
+      margin-left: -25%;
+   }
+
+   .login__title {
+      text-align: center;
+      margin-top: -1%;
+      font-style: normal;
+      font-weight: 400;
+      font-size: 24px;
+      color: #ffffff;
+      margin-left: -0.8%;
+   }
+
+   .login__phrase {
+      font-style: normal;
+      font-weight: 400;
       font-size: 16px;
-      margin-left: -7%;
+      text-align: center;
+      color: #ffffff;
+      margin-left: -0.8%;
    }
 }
 
