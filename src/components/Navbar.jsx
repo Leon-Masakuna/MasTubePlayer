@@ -1,5 +1,4 @@
 import React from 'react'
-/* import logo from '../assets/tubePlayer.jpg' */
 import '../styles/navbar_style.css'
 import '../styles/sidebar_style.css'
 import Searchbar from './Searchbar'
@@ -8,20 +7,20 @@ import { NavLink } from 'react-router-dom'
 
 const Navbar = () => {
    const profileImage = localStorage.getItem('item')
-   /* const profileName = localStorage.getItem('itemName') */
-   console.log(profileImage)
+   const appName = 'MasTubePlayer'
 
    return (
       <>
          <nav>
             <div className="navbar__logo__name">
-               {/* <img src={logo} className="nav--logo" alt="logo" /> */}
                <i className="fa-brands fa-youtube nav--logo"></i>
-               <p className="navbar__site__title">MasTubePlayer</p>
+               <p className="navbar__site__title">{appName}</p>
             </div>
             <div className="navigation">
                <NavLink
-                  className="sidebar__submission is__active"
+                  className={(nav) =>
+                     nav.isActive ? 'is__active' : 'not__active'
+                  }
                   to={'/dashbord'}
                >
                   <h3 className="sidebar__sub home__bg home__margin home__title">
@@ -32,7 +31,9 @@ const Navbar = () => {
                   </h3>
                </NavLink>
                <NavLink
-                  className="sidebar__submission is__active"
+                  className={(nav) =>
+                     nav.isActive ? 'is__active' : 'not__active'
+                  }
                   to={'/channelPage'}
                >
                   <h3 className="sidebar__sub home__bg sub__title">
@@ -51,7 +52,6 @@ const Navbar = () => {
                </div>
                <div className="empty__space">
                   <img className="profile__picture" src={profileImage} alt="" />
-                  {/* <span>{profileName}</span> */}
                </div>
             </div>
          </nav>
