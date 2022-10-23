@@ -1,12 +1,10 @@
 import React from 'react'
-import ChannelCardVideos from '../components/ChannelCardVideos'
-import Navbar from '../components/Navbar'
+import ChannelVideos from '../components/ChannelVideos'
 
 const ChanelVideosPage = () => {
    return (
       <div>
-         <Navbar />
-         <ChannelCardVideos />
+         <ChannelVideos />
       </div>
    )
 }
