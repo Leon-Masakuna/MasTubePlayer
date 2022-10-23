@@ -4,12 +4,11 @@ import './App.css'
 import { Routes, Route } from 'react-router-dom'
 import Authentification from './pages/Authentification'
 import HomePage from './pages/HomePage'
-import MainVideoReadingPage from './pages/MainVideoReadingPage'
 import ChannelPage from './pages/ChannelPage'
 import ChanelVideosPage from './pages/ChanelVideosPage'
-import ChannelCardVideosReading from './components/ChannelCardVideosReading'
-import SearchPage from './components/SearchPage'
 import SearchResultPage from './pages/SearchResultPage'
+import Navbar from './components/Navbar'
+import VideoReadingPage from './pages/VideoReadingPage'
 
 const clientId =
    '207208175376-74k3vacevfg0a05ju6tuld9ejsogvpm9.apps.googleusercontent.com'
@@ -25,25 +24,66 @@ export default function App() {
       gapi.load('client: auth2', start)
    })
 
+   const Layout = ({ children }) => {
+      return (
+         <>
+            <Navbar />
+            <div>{children}</div>
+         </>
+      )
+   }
+
    return (
       <div className="login__main__container">
          <Routes>
             <Route path="/" element={<Authentification />} />
-            <Route path="/dashbord" element={<HomePage />} />
-            <Route path="/*" element={<HomePage />} />
-            <Route path="/videoplay/:id" element={<MainVideoReadingPage />} />
-            <Route path="/channelPage" element={<ChannelPage />} />
+            <Route
+               path="/dashbord"
+               element={
+                  <Layout>
+                     <HomePage />
+                  </Layout>
+               }
+            />
+            <Route
+               path="/*"
+               element={
+                  <Layout>
+                     <HomePage />
+                  </Layout>
+               }
+            />
+            <Route
+               path="/videoplay/:videoId/:channelId"
+               element={
+                  <Layout>
+                     <VideoReadingPage />
+                  </Layout>
+               }
+            />
+            <Route
+               path="/channelPage"
+               element={
+                  <Layout>
+                     <ChannelPage />
+                  </Layout>
+               }
+            />
             <Route
                path="/chanelVideosPage/:channelId"
-               element={<ChanelVideosPage />}
+               element={
+                  <Layout>
+                     <ChanelVideosPage />
+                  </Layout>
+               }
             />
             <Route
-               path="/chanelCardVideos/:videoId"
-               element={<ChannelCardVideosReading />}
-            />
-            <Route
-               path="/searchpage:searchWord"
-               element={<SearchResultPage />}
+               path="/searchpage/:searchWord"
+               element={
+                  <Layout>
+                     <SearchResultPage />
+                  </Layout>
+               }
             />
          </Routes>
       </div>

@@ -3,12 +3,16 @@ import { useParams, Link, useNavigate } from 'react-router-dom'
 // import Sidebar from './Sidebar'
 import { useState, useEffect } from 'react'
 import Card from './Card'
+import ErrorPage from './ErrorPage'
+import Loader from './Loader'
 
-const ChannelCardVideos = () => {
+const ChannelVideos = () => {
    //state
    const [video, setVideo] = useState([])
    const { channelId } = useParams()
    const navigate = useNavigate()
+   const [loading, setLoading] = useState(true)
+   const [error, setError] = useState(false)
 
    //behavior
    const key = 'AIzaSyAjYZj_Ga7caIIP_HlQ3Qi5HmgPTG1LGVI'
@@ -22,8 +26,12 @@ const ChannelCardVideos = () => {
          headers: new Headers({ Authorization: `Bearer ${accessToken}` }),
       })
          .then((res) => res.json())
-         .then((data) => setVideo(data.items))
-   }, [])
+         .then((data) => {
+            setVideo(data?.items)
+            setLoading(false)
+         })
+         .catch(() => setError(true))
+   }, [accessToken])
 
    console.log('videos abonnées : ', video)
 
@@ -33,29 +41,29 @@ const ChannelCardVideos = () => {
       }
    }, [accessToken, navigate])
 
+   if (error) {
+      return <ErrorPage />
+   }
+
    return (
       <div>
          <div>
             <div className="grid_sidebar_searchbar">
                <div className="main_side">
                   <div className="image__preview image__container">
-                     {video.map(
-                        (item, id) => (
-                           /*  {
-                        const videoId = item.id.videoId
-                        return  */ <Link
+                     {!loading ? (
+                        video?.map((item, id) => (
+                           <Link
                               className="video__link__style"
-                              to={`/chanelCardVideos/${item.id.videoId}`}
+                              to={`/videoplay/${item.id.videoId}/${item?.snippet?.channelId}`}
                               key={id}
                            >
                               <Card key={id} video={item} />
                            </Link>
-                        )
-                        /* } */
+                        ))
+                     ) : (
+                        <Loader />
                      )}
-                     {/* <div>
-                        <h1>Affichage videos de la chaine choisie</h1>
-                     </div> */}
                   </div>
                </div>
             </div>
@@ -64,4 +72,4 @@ const ChannelCardVideos = () => {
    )
 }
 
-export default ChannelCardVideos
+export default ChannelVideos

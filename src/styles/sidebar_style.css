@@ -1,13 +1,7 @@
 .sidebar {
-   /* background-color: rgb(217, 217, 217, 100%); */
-   border-right: 1px solid rgb(103, 34, 128, 100%);
    position: fixed;
-   /*  margin-top: 70px; */
    width: 20%;
 }
-/* .sidebar__title {
-   margin: 25px 5px;
-} */
 
 .hide_home,
 .hide_sub {
@@ -15,54 +9,25 @@
 }
 
 .sidebar__submission {
-   /* margin-left: 35px; */
    text-decoration: none;
    color: black;
 }
 
-/* .sidebar__sub {
-   margin-left: 35px;
-} */
-
 .home__bg {
-   /*  background-color: white; */
-   /* box-shadow: 0px 3px 5px rgb(164, 185, 192); */
    height: 40px;
-   /* width: 180px; */
    border-radius: 5px;
-   /* padding-left: 12px; */
    padding-top: 10px;
 }
 
-/* .home__bg:hover {
-   background-color: white;
-} */
-
-/* .home__margin {
-   margin-top: 13px;
-   margin-bottom: -20px;
-} */
-
-.home__title,
+/* .home__title,
 .sub__title {
    color: white;
-   background-color: #672280;
-}
-
-/* .home__title {
-   margin-left: 5%;
 } */
 
 .home__title:hover,
 .sub__title:hover {
-   background-color: #672280;
-   color: white;
+   color: red;
 }
-
-/* .is__active {
-   background-color: #672280;
-   color: white;
-} */
 
 .navigation {
    display: flex;
@@ -73,11 +38,20 @@
    margin-left: -10%;
 }
 
+.is__active {
+   color: rgb(235, 23, 23);
+   text-decoration: none;
+}
+
+.not__active {
+   color: white;
+   text-decoration: none;
+}
+
 @media screen and (max-width: 425px) {
    .sidebar {
       background-color: rgb(103, 34, 128, 100%);
       border-right: 1px solid rgb(103, 34, 128, 100%);
-      /* position: fixed; */
       height: 100%;
       margin-top: 50px;
       width: 10%;
@@ -104,7 +78,6 @@
    .sidebar {
       background-color: rgb(103, 34, 128, 100%);
       border-right: 1px solid rgb(103, 34, 128, 100%);
-      /* position: fixed; */
       margin-top: 50px;
       width: 10%;
    }

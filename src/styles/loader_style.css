@@ -1,0 +1,14 @@
+.position-load {
+   display: flex;
+   height: 70vh;
+   width: 80vh;
+   justify-content: center;
+   align-items: center;
+}
+
+.logo__loader {
+   width: 100%;
+   height: 100%;
+   border-radius: 50%;
+   color: aliceblue;
+}

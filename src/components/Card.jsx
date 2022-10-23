@@ -14,13 +14,6 @@ const Card = ({ video }) => {
                   alt="image video"
                />
                <p className="video__title">{video?.snippet?.title}</p>
-               {/*<div className="channel__logo__title">
-                   <img
-                     src={video?.snippet?.thumbnails?.standard?.url}
-                     alt="chanel image"
-                  />
-                  <p>{video?.snippet?.channelTitle}</p> 
-               </div>*/}
             </div>
          </div>
       </div>
