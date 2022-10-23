@@ -2,15 +2,8 @@
    display: flex;
    flex-direction: column;
    overflow-y: scroll;
-   /* margin: auto; */ /* 
-   margin-left: 20%; */
    height: 100vh;
 }
-
-/* .grid_sidebar_searchbar {
-   display: grid;
-   grid-template-columns: repeat(2, 30% 70%);
-} */
 
 .video__link__style {
    text-decoration: none;
