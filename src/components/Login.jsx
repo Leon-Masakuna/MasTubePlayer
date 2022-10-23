@@ -11,18 +11,10 @@ const Login = () => {
 
    const navigate = useNavigate()
    const onSucces = (res) => {
-      /* console.log('LOGIN success! Current user: ', res)
-      console.log(res.profileObj['imageUrl'])
-
-      console.log('Access Token : ', res.accessToken) */
-
       const profilePicture = res.profileObj['imageUrl']
       localStorage.setItem('item', profilePicture)
       const accessToken = res.accessToken
       localStorage.setItem('token', accessToken)
-
-      /* console.log('accessToken : ', accessToken) */
-      console.log('image : ', profilePicture)
 
       navigate('/dashbord')
    }
