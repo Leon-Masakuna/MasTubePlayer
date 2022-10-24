@@ -4,8 +4,7 @@ import { GoogleLogout } from 'react-google-login'
 import { useNavigate } from 'react-router-dom'
 import { render } from '@testing-library/react'
 
-const clientId =
-   '207208175376-74k3vacevfg0a05ju6tuld9ejsogvpm9.apps.googleusercontent.com'
+const clientId = import.meta.env.VITE_YOUTUBE_CLIENT_ID
 
 const Logout = () => {
    const navigate = useNavigate()
