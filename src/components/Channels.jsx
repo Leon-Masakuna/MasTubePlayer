@@ -12,10 +12,9 @@ const Channels = () => {
    const [error, setError] = useState(false)
 
    //behavior
-   const key = 'AIzaSyAjYZj_Ga7caIIP_HlQ3Qi5HmgPTG1LGVI'
+   const key = import.meta.env.VITE_YOUTUBE_API_KEY
    const fecthData = `https://youtube.googleapis.com/youtube/v3/subscriptions?part=snippet%2CcontentDetails&maxResults=45&mine=true&key=${key}`
    const accessToken = localStorage.getItem('token')
-   console.log('Main component : ', accessToken)
    const navigate = useNavigate()
 
    useEffect(() => {
@@ -30,8 +29,6 @@ const Channels = () => {
          })
          .catch(() => setError(true))
    }, [accessToken])
-
-   console.log('videos abonnées : ', videos)
 
    useEffect(() => {
       if (!accessToken) {
