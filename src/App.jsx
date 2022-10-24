@@ -34,7 +34,7 @@ export default function App() {
    }
 
    return (
-      <div className="login__main__container">
+      <div>
          <Routes>
             <Route path="/" element={<Authentification />} />
             <Route
