@@ -16,12 +16,10 @@ const Main = () => {
 
    //behavior
    const key = import.meta.env.VITE_YOUTUBE_API_KEY
-   console.log('clé : ', key)
 
    const fecthData = `https://youtube.googleapis.com/youtube/v3/videos?part=snippet%2CcontentDetails%2Cstatistics&chart=mostPopular&maxResults=48&regionCode=FR&key=${key}`
 
    const accessToken = localStorage.getItem('token')
-   console.log('Main component : ', accessToken)
 
    useEffect(() => {
       fetch(fecthData, {
@@ -44,7 +42,7 @@ const Main = () => {
 
    useEffect(() => {
       if (error) {
-         return <ErrorPage />
+         navigate('/errorpage')
       }
    }, [accessToken])
 

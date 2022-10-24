@@ -6,8 +6,7 @@ import '../styles/login_style.css'
 import { render } from '@testing-library/react'
 
 const Login = () => {
-   const clientId =
-      '207208175376-74k3vacevfg0a05ju6tuld9ejsogvpm9.apps.googleusercontent.com'
+   const clientId = import.meta.env.VITE_YOUTUBE_CLIENT_ID
 
    const navigate = useNavigate()
    const onSucces = (res) => {

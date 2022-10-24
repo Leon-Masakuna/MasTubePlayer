@@ -1,7 +1,16 @@
 .error {
    display: flex;
-   height: 100vh;
-   width: 80vw;
+   flex-direction: column;
    justify-content: center;
    align-items: center;
+   height: 100vh;
+   color: #672280;
+}
+
+.mail__link {
+   text-decoration: none;
+}
+
+.mail__address {
+   color: chocolate;
 }
