@@ -11,8 +11,10 @@ const VideoReading = () => {
    const [videoInfo, setVideoInfo] = useState([])
    const { videoId, channelId } = useParams()
    const [videoChannelInfos, setVideoChannelInfos] = useState([])
+   const [loading, setLoading] = useState(true)
+   const [error, setError] = useState(false)
 
-   const key = 'AIzaSyAjYZj_Ga7caIIP_HlQ3Qi5HmgPTG1LGVI'
+   const key = import.meta.env.VITE_YOUTUBE_API_KEY
    const fecthData = `https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=50&relatedToVideoId=${videoId}&type=video&key=${key}`
 
    const fecthVideoById = `https://youtube.googleapis.com/youtube/v3/videos?part=snippet%2CcontentDetails%2Cstatistics&id=${videoId}&maxResults=50&key=${key}`
@@ -29,7 +31,11 @@ const VideoReading = () => {
          headers: new Headers({ Authorization: `Bearer ${accessToken}` }),
       })
          .then((res) => res.json())
-         .then((data) => setRelatedVideos(data?.items))
+         .then((data) => {
+            setRelatedVideos(data?.items)
+            setLoading(false)
+         })
+         .catch(() => setError(true))
    }, [accessToken, videoId])
 
    //UseEffect for videos ID
@@ -39,7 +45,11 @@ const VideoReading = () => {
          headers: new Headers({ Authorization: `Bearer ${accessToken}` }),
       })
          .then((result) => result.json())
-         .then((data) => setVideoInfo(data?.items))
+         .then((data) => {
+            setVideoInfo(data?.items)
+            setLoading(false)
+         })
+         .catch(() => setError(true))
    }, [accessToken, videoId])
 
    //UseEffect for channel by video
@@ -49,23 +59,29 @@ const VideoReading = () => {
          headers: new Headers({ Authorization: `Bearer ${accessToken}` }),
       })
          .then((result) => result.json())
-         .then((data) => setVideoChannelInfos(data?.items))
+         .then((data) => {
+            setVideoChannelInfos(data?.items)
+            setLoading(false)
+         })
+         .catch(() => setError(true))
    }, [accessToken, videoId])
-
-   console.log('related videos : ', relatedVideos)
-   console.log('video infos : ', videoInfo)
-   console.log('Channels infos : ', videoChannelInfos)
-   console.log('channel id : ', channelId)
 
    useEffect(() => {
       if (!accessToken) {
          navigate('/')
       }
    }, [accessToken, navigate])
+
+   useEffect(() => {
+      if (error) {
+         navigate('/errorpage')
+      }
+   }, [accessToken])
+
    return (
       <div>
          <div className="reading__page">
-            <div className="video__lecture">
+            <div className="video__lecture" id="video__lecture">
                <iframe
                   width="560"
                   height="315"
