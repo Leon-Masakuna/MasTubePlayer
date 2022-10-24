@@ -15,10 +15,9 @@ const ChannelVideos = () => {
    const [error, setError] = useState(false)
 
    //behavior
-   const key = 'AIzaSyAjYZj_Ga7caIIP_HlQ3Qi5HmgPTG1LGVI'
+   const key = import.meta.env.VITE_YOUTUBE_API_KEY
    const fecthData = `https://www.googleapis.com/youtube/v3/search?part=snippet&channelId=${channelId}&type=video&maxResults=45&key=${key}`
    const accessToken = localStorage.getItem('token')
-   console.log('Main component : ', accessToken)
 
    useEffect(() => {
       fetch(fecthData, {
@@ -32,8 +31,6 @@ const ChannelVideos = () => {
          })
          .catch(() => setError(true))
    }, [accessToken])
-
-   console.log('videos abonnées : ', video)
 
    useEffect(() => {
       if (!accessToken) {
