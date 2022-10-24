@@ -10,7 +10,7 @@ const SearchPage = () => {
    const navigate = useNavigate()
    const { searchWord } = useParams()
    const [videoFound, setVideoFound] = useState([])
-   const key = 'AIzaSyAjYZj_Ga7caIIP_HlQ3Qi5HmgPTG1LGVI'
+   const key = import.meta.env.VITE_YOUTUBE_API_KEY
    const accessToken = localStorage.getItem('token')
    const [loading, setLoading] = useState(true)
    const [error, setError] = useState(false)
