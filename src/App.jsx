@@ -9,6 +9,7 @@ import ChanelVideosPage from './pages/ChanelVideosPage'
 import SearchResultPage from './pages/SearchResultPage'
 import Navbar from './components/Navbar'
 import VideoReadingPage from './pages/VideoReadingPage'
+import ErrorPage from './components/ErrorPage'
 
 const clientId =
    '207208175376-74k3vacevfg0a05ju6tuld9ejsogvpm9.apps.googleusercontent.com'
@@ -82,6 +83,14 @@ export default function App() {
                element={
                   <Layout>
                      <SearchResultPage />
+                  </Layout>
+               }
+            />
+            <Route
+               path="/errorpage"
+               element={
+                  <Layout>
+                     <ErrorPage />
                   </Layout>
                }
             />
