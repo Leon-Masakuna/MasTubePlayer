@@ -103,125 +103,13 @@
    cursor: pointer;
 }
 
-/* @media screen and (max-width: 425px) {
-   .btn-logout {
-      background-color: #d9d9d9;
-      width: 50px;
-      border: none;
-      border-radius: 5px;
-      font-style: normal;
-      font-weight: 400;
-      font-size: 9px;
-      color: #672280;
-      box-shadow: none;
-      margin-top: 12%;
-   }
-
-   .login__container {
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      margin: auto;
-   }
-
-   .login__ui {
-      width: 80vh;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      text-align: center;
-      border: none;
-      border-radius: 10px;
-      background-color: #672280;
-   }
-
-   .btn-login {
-      background-color: #d9d9d9;
-      height: 50px;
-      width: 300px;
-      border: none;
-      border-radius: 10px;
-      color: #672280;
-      font-style: normal;
-      font-weight: 400;
-      font-size: 16px;
-      margin-left: 2%;
-   }
-}
-
-@media screen and (max-width: 375px) {
-   html {
-      width: 100%;
-   }
-   .btn-logout {
-      background-color: #d9d9d9;
-      width: 60px;
-      border: none;
-      border-radius: 5px;
-      font-style: normal;
-      font-weight: 400;
-      font-size: 10px;
-      color: #672280;
-      box-shadow: none;
-      margin-top: 12%;
-      height: 30px;
-   }
-
-   .login__container {
-      display: flex;
-      flex-direction: row;
-      justify-content: center;
-      align-items: center;
-      margin-right: -20vh;
-   }
-
-   .login__ui {
-      width: 40vh;
-      height: 40vh;
-      border: none;
-      border-radius: 10px;
-      background-color: #672280;
-   }
-
-   .btn-login {
-      background-color: #d9d9d9;
-      height: 50px;
-      width: 250px;
-      border: none;
-      border-radius: 10px;
-      color: #672280;
-      font-style: normal;
-      font-weight: 400;
-      font-size: 10px;
-      float: left;
-      margin-left: 5.5%;
-   }
-
-   .login__title {
-      text-align: center;
-      margin-top: -1%;
-      font-style: normal;
-      font-weight: 400;
-      font-size: 24px;
-      color: #ffffff;
-   }
-
-   .login__phrase {
-      font-style: normal;
-      font-weight: 400;
-      font-size: 16px;
-      text-align: center;
-      color: #ffffff;
-   }
-}
- */
-
 @media screen and (max-width: 375px) {
    .login__ui {
       border-radius: 0px 0px 0px 0px;
       width: auto;
       border-radius: 10px;
+      margin: 0 0;
+      height: 45vh;
    }
 
    .btn-login {
@@ -236,5 +124,13 @@
       font-size: 14px;
       margin-left: 20px;
       margin-right: 20px;
+   }
+
+   .login__container {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      margin: auto;
    }
 }
