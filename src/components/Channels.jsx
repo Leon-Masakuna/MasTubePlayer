@@ -36,9 +36,11 @@ const Channels = () => {
       }
    }, [accessToken, navigate])
 
-   if (error) {
-      return <ErrorPage />
-   }
+   useEffect(() => {
+      if (error) {
+         navigate('/errorpage')
+      }
+   }, [accessToken])
 
    return (
       <>
