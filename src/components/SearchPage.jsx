@@ -39,7 +39,7 @@ const SearchPage = () => {
 
    useEffect(() => {
       if (error) {
-         return <ErrorPage />
+         navigate('/errorpage')
       }
    }, [accessToken])
 
