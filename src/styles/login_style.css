@@ -36,24 +36,6 @@
    color: #ffffff;
 }
 
-input {
-   background: #d9d9d9;
-   width: 344px;
-   height: 44px;
-   margin-left: 65px;
-   outline: none;
-   border-radius: 5px;
-   border: none;
-   margin-top: 50px;
-   font-family: 'Poppins', sans-serif;
-   font-style: normal;
-   font-weight: 100;
-   font-size: 16px;
-   display: flex;
-   color: #000000;
-   padding-left: 10px;
-}
-
 .login__button {
    text-align: center;
 }
@@ -64,7 +46,7 @@ input {
 
 .link__decoration {
    text-decoration: none;
-   width: 400px;
+   width: auto;
 }
 
 .logout__container {
@@ -121,7 +103,7 @@ input {
    cursor: pointer;
 }
 
-@media screen and (max-width: 425px) {
+/* @media screen and (max-width: 425px) {
    .btn-logout {
       background-color: #d9d9d9;
       width: 50px;
@@ -231,5 +213,28 @@ input {
       font-size: 16px;
       text-align: center;
       color: #ffffff;
+   }
+}
+ */
+
+@media screen and (max-width: 375px) {
+   .login__ui {
+      border-radius: 0px 0px 0px 0px;
+      width: auto;
+      border-radius: 10px;
+   }
+
+   .btn-login {
+      background-color: #d9d9d9;
+      height: 50px;
+      width: 80vw;
+      border: none;
+      border-radius: 10px;
+      color: #672280;
+      font-style: normal;
+      font-weight: 400;
+      font-size: 14px;
+      margin-left: 20px;
+      margin-right: 20px;
    }
 }
