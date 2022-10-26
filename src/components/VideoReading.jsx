@@ -94,7 +94,7 @@ const VideoReading = () => {
                   <div>
                      {videoInfo?.map((item, id) => (
                         <div key={id}>
-                           <p className="video__title">
+                           <p className="video__read__title">
                               {item?.snippet?.title}
                            </p>
 

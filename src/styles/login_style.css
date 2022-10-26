@@ -114,8 +114,6 @@
 
    .btn-login {
       background-color: #d9d9d9;
-      height: 50px;
-      width: 80vw;
       border: none;
       border-radius: 10px;
       color: #672280;
@@ -132,5 +130,21 @@
       justify-content: center;
       align-items: center;
       margin: auto;
+   }
+
+   .btn-logout {
+      background-color: #d9d9d9;
+      height: 4vh;
+      width: 5vh;
+      border: none;
+      border-radius: 5px;
+      font-style: normal;
+      font-weight: 400;
+      font-size: 16px;
+      color: #672280;
+   }
+
+   .logout__text {
+      display: none;
    }
 }

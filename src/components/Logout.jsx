@@ -27,7 +27,7 @@ const Logout = () => {
                      disabled={renderProps.disabled}
                   >
                      <i className="fa-solid fa-right-from-bracket google-logout-icon"></i>{' '}
-                     Logout
+                     <span className="logout__text">Logout</span>
                   </button>
                )}
                buttonText={'Logout'}
