@@ -28,7 +28,7 @@ const Main = () => {
       })
          .then((res) => res.json())
          .then((data) => {
-            setVideos(data?.items)
+            setVideos(data.items)
             setLoading(false)
          })
          .catch(() => setError(true))
@@ -54,10 +54,10 @@ const Main = () => {
             <div className="main_side">
                <div className="image__preview image__container">
                   {!loading ? (
-                     videos?.map((item, id) => (
+                     videos.map((item, id) => (
                         <Link
                            className="video__link__style"
-                           to={`/videoplay/${item.id}/${item?.snippet?.channelId}`}
+                           to={`/videoplay/${item.id}/${item.snippet.channelId}`}
                            key={id}
                         >
                            <Card key={id} video={item} />
@@ -66,6 +66,7 @@ const Main = () => {
                   ) : (
                      <Loader />
                   )}
+                  {error && <ErrorPage />}
                </div>
             </div>
          </div>
