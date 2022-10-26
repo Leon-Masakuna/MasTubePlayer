@@ -41,7 +41,7 @@ const Main = () => {
    }, [accessToken, navigate])
 
    useEffect(() => {
-      if (error) {
+      if (error || videos == undefined) {
          navigate('/errorpage')
       }
    }, [accessToken])
