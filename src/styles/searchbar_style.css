@@ -95,4 +95,9 @@
       border-radius: 0px 2px 2px 0px;
       border-left: none;
    }
+
+   .searchbar__container {
+      margin: 0;
+      width: 20vh;
+   }
 }

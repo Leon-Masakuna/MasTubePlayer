@@ -117,7 +117,7 @@ nav {
       flex-direction: row;
       justify-content: center;
       align-items: center;
-      margin-left: 1.5vh;
+      margin-left: 2vh;
    }
    .empty__space {
       background-color: white;
@@ -134,7 +134,7 @@ nav {
       width: 100%;
       height: 50px;
       margin: 0;
-      padding: 20px 4vh;
+      padding: 20px 5vh;
    }
 
    .logout__component {
