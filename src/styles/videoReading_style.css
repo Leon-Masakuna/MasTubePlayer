@@ -5,6 +5,10 @@
    width: 130vh;
 }
 
+.video__read__title {
+   width: 128vh;
+}
+
 iframe {
    width: 128vh;
    height: 68vh;
@@ -109,13 +113,20 @@ iframe {
       display: flex;
       flex-direction: column;
       align-items: left;
-      padding-top: 8%;
+      margin-top: 7.5%;
+      padding-top: 0px;
       width: 45vh;
+      position: fixed;
+      background-color: #d9d9d9;
    }
 
    iframe {
       width: 45vh;
       height: auto;
+   }
+
+   .video__read__title {
+      width: 45vh;
    }
 
    .reading__page {
@@ -131,5 +142,9 @@ iframe {
    .video__infos {
       color: #672280;
       font-size: 12px;
+   }
+
+   .related__videos {
+      margin-top: 50vh;
    }
 }
