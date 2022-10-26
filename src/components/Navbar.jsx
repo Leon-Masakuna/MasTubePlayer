@@ -47,7 +47,7 @@ const Navbar = () => {
             </div>
             <Searchbar />
             <div className="navbar__logo__sign__up">
-               <div>
+               <div className="logout__component">
                   <Logout />
                </div>
                <div className="empty__space">
