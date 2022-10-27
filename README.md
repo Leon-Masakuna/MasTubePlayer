@@ -35,5 +35,6 @@ Such as :
     "react-router-hash-link": for hash link
     "eslint" or "eslint-plugin-react": for static test
     "prettier": for code format
+    "@testinglibrary/react"
 
 For any contact : masakunamfengleon@gmail.com
