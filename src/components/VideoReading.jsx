@@ -6,6 +6,7 @@ import moment from 'moment/moment'
 import numeral from 'numeral'
 import Loader from './Loader'
 import ErrorPage from './ErrorPage'
+import { HashLink } from 'react-router-hash-link'
 
 const VideoReading = () => {
    //States
@@ -81,105 +82,108 @@ const VideoReading = () => {
    }, [accessToken])
 
    return (
-      <div>
-         <div className="reading__page">
-            <div className="video__lecture" id="video__lecture">
-               <iframe
-                  width="560"
-                  height="315"
-                  src={`https://www.youtube.com/embed/${videoId}`}
-                  title="YouTube video player"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                  allowFullScreen="allowFullScreen"
-               ></iframe>
-               <div>
+      <div className="reading__page__container">
+         <div className="reading__page" id="page">
+            <section id="video">
+               <div className="video__lecture" id="video__lecture">
+                  <iframe
+                     width="560"
+                     height="315"
+                     src={`https://www.youtube.com/embed/${videoId}`}
+                     title="YouTube video player"
+                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                     allowFullScreen="allowFullScreen"
+                  ></iframe>
                   <div>
-                     {loading
-                        ? ''
-                        : videoInfo
-                        ? videoInfo.map((item, id) => (
-                             <div key={id}>
-                                <p className="video__read__title">
-                                   {item?.snippet?.title}
-                                </p>
+                     <div>
+                        {loading
+                           ? ''
+                           : videoInfo
+                           ? videoInfo.map((item, id) => (
+                                <div key={id}>
+                                   <p className="video__read__title">
+                                      {item?.snippet?.title}
+                                   </p>
 
-                                <div className="video__infos">
-                                   <div className="comment__infos">
-                                      {numeral(
-                                         item?.statistics?.viewCount
-                                      ).format('O.a')}{' '}
-                                      views
-                                   </div>
-                                   <div className="comment__infos">
-                                      <i className="fa-solid fa-thumbs-up"></i>{' '}
-                                      {numeral(
-                                         item?.statistics?.likeCount
-                                      ).format('O.a')}
-                                   </div>
-                                   <div className="comment__infos">
-                                      Comments :{' '}
-                                      {numeral(
-                                         item?.statistics?.commentCount
-                                      ).format('O.a')}
-                                   </div>
-                                   <div className="comment__infos">
-                                      Published :{' '}
-                                      {moment(
-                                         item?.snippet?.publishedAt
-                                      ).fromNow()}
+                                   <div className="video__infos">
+                                      <div className="comment__infos">
+                                         {numeral(
+                                            item?.statistics?.viewCount
+                                         ).format('O.a')}{' '}
+                                         views
+                                      </div>
+                                      <div className="comment__infos">
+                                         <i className="fa-solid fa-thumbs-up"></i>{' '}
+                                         {numeral(
+                                            item?.statistics?.likeCount
+                                         ).format('O.a')}
+                                      </div>
+                                      <div className="comment__infos">
+                                         Comments :{' '}
+                                         {numeral(
+                                            item?.statistics?.commentCount
+                                         ).format('O.a')}
+                                      </div>
+                                      <div className="comment__infos">
+                                         Published :{' '}
+                                         {moment(
+                                            item?.snippet?.publishedAt
+                                         ).fromNow()}
+                                      </div>
                                    </div>
                                 </div>
-                             </div>
-                          ))
-                        : ''}
-                  </div>
-                  <div>
-                     {loading
-                        ? ''
-                        : videoChannelInfos
-                        ? videoChannelInfos.map((item, id) => {
-                             const channelId = item.id
-                             return (
-                                <Link
-                                   to={`/chanelVideosPage/${channelId}`}
-                                   className="channel__link"
-                                   key={id}
-                                >
-                                   <div className="channel__info__container">
-                                      <div className="channel__image">
-                                         <img
-                                            className="image__channel"
-                                            src={
-                                               item.snippet.thumbnails[
-                                                  'medium'
-                                               ]['url']
-                                            }
-                                            alt=""
-                                         />
+                             ))
+                           : ''}
+                     </div>
+                     <div>
+                        {loading
+                           ? ''
+                           : videoChannelInfos
+                           ? videoChannelInfos.map((item, id) => {
+                                const channelId = item.id
+                                return (
+                                   <Link
+                                      to={`/chanelVideosPage/${channelId}`}
+                                      className="channel__link"
+                                      key={id}
+                                   >
+                                      <div className="channel__info__container">
+                                         <div className="channel__image">
+                                            <img
+                                               className="image__channel"
+                                               src={
+                                                  item.snippet.thumbnails[
+                                                     'medium'
+                                                  ]['url']
+                                               }
+                                               alt=""
+                                            />
+                                         </div>
+                                         <p className="channel__text">
+                                            {item.snippet.title}
+                                         </p>
                                       </div>
-                                      <p className="channel__text">
-                                         {item.snippet.title}
-                                      </p>
-                                   </div>
-                                </Link>
-                             )
-                          })
-                        : ''}
+                                   </Link>
+                                )
+                             })
+                           : ''}
+                     </div>
                   </div>
                </div>
-            </div>
+            </section>
             <div className="related__videos">
                {loading ? (
                   <Loader />
                ) : relatedVideos ? (
                   relatedVideos.map((item, id) => (
-                     <Link
+                     <HashLink
                         className="video__link__style"
-                        to={`/videoplay/${item.id.videoId}/${item?.snippet?.channelId}`}
+                        smooth
+                        to={`/videoplay/${item.id.videoId}/${item?.snippet?.channelId}#page`}
                         key={id}
                      >
                         <Card key={id} video={item} />
-                     </Link>
+                     </HashLink>
                   ))
                ) : (
                   <ErrorPage />
