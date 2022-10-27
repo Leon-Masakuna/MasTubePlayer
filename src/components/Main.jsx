@@ -40,11 +40,9 @@ const Main = () => {
       }
    }, [accessToken, navigate])
 
-   useEffect(() => {
-      if (error || videos == undefined) {
-         navigate('/errorpage')
-      }
-   }, [accessToken])
+   /*  if (error || videos == undefined) {
+      navigate('/errorpage') || <ErrorPage />
+   } */
 
    console.log('erreur : ', error)
    //render
@@ -53,7 +51,9 @@ const Main = () => {
          <div className="grid_sidebar_searchbar">
             <div className="main_side">
                <div className="image__preview image__container">
-                  {!loading ? (
+                  {loading ? (
+                     <Loader />
+                  ) : videos ? (
                      videos.map((item, id) => (
                         <Link
                            className="video__link__style"
@@ -64,9 +64,8 @@ const Main = () => {
                         </Link>
                      ))
                   ) : (
-                     <Loader />
+                     <ErrorPage />
                   )}
-                  {error && <ErrorPage />}
                </div>
             </div>
          </div>
