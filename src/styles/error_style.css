@@ -3,7 +3,7 @@
    flex-direction: column;
    justify-content: center;
    align-items: center;
-   height: 100vh;
+   height: 70vh;
    color: #672280;
 }
 
@@ -13,4 +13,11 @@
 
 .mail__address {
    color: chocolate;
+}
+
+.error__container {
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+   align-items: center;
 }

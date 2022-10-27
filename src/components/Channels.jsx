@@ -36,11 +36,9 @@ const Channels = () => {
       }
    }, [accessToken, navigate])
 
-   useEffect(() => {
-      if (error) {
-         navigate('/errorpage')
-      }
-   }, [accessToken])
+   /* if (error || videos == undefined) {
+      navigate('/errorpage') || <ErrorPage />
+   } */
 
    return (
       <>
@@ -49,8 +47,10 @@ const Channels = () => {
                <div className="grid_sidebar_searchbar">
                   <div className="main_side">
                      <div className="image__preview image__container">
-                        {!loading ? (
-                           videos?.map((item, id) => {
+                        {loading ? (
+                           <Loader />
+                        ) : videos ? (
+                           videos.map((item, id) => {
                               const channelId =
                                  item.snippet.resourceId.channelId
                               return (
@@ -64,7 +64,7 @@ const Channels = () => {
                               )
                            })
                         ) : (
-                           <Loader />
+                           <ErrorPage />
                         )}
                      </div>
                   </div>
