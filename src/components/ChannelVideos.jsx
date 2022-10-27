@@ -38,9 +38,9 @@ const ChannelVideos = () => {
       }
    }, [accessToken, navigate])
 
-   if (error) {
+   /* if (error) {
       return <ErrorPage />
-   }
+   } */
 
    return (
       <div>
@@ -48,8 +48,10 @@ const ChannelVideos = () => {
             <div className="grid_sidebar_searchbar">
                <div className="main_side">
                   <div className="image__preview image__container">
-                     {!loading ? (
-                        video?.map((item, id) => (
+                     {loading ? (
+                        <Loader />
+                     ) : video ? (
+                        video.map((item, id) => (
                            <Link
                               className="video__link__style"
                               to={`/videoplay/${item.id.videoId}/${item?.snippet?.channelId}`}
@@ -59,7 +61,7 @@ const ChannelVideos = () => {
                            </Link>
                         ))
                      ) : (
-                        <Loader />
+                        <ErrorPage />
                      )}
                   </div>
                </div>
