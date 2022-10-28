@@ -37,6 +37,7 @@
 
 .searchbar__container {
    display: flex;
+   width: 27vw;
 }
 
 .button_link {
