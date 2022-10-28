@@ -13,6 +13,24 @@
    flex-direction: column;
    justify-content: flex-start;
    align-items: center;
+   height: 40vh;
+}
+
+.channel__card__items {
+   width: 320px;
+   border-radius: 5px;
+   background-color: rgb(217, 217, 217, 100%);
+   border: 1px solid #672280;
+   transition: transform 0.25s ease-out;
+   margin-bottom: 5px;
+   text-align: center;
+   padding-bottom: 0px;
+   font-size: 14px;
+   color: #672280;
+   display: flex;
+   flex-direction: column;
+   justify-content: flex-start;
+   align-items: center;
 }
 
 .card__items:hover {
