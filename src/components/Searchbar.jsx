@@ -1,6 +1,6 @@
 import React from 'react'
 import { useState } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import '../styles/searchbar_style.css'
 
 const Searchbar = () => {
@@ -10,6 +10,8 @@ const Searchbar = () => {
       setInputSearch(e.target.value)
    }
 
+   const navigate = useNavigate()
+
    return (
       <form className="searchbar__container">
          <input
@@ -18,12 +20,17 @@ const Searchbar = () => {
             placeholder="Recherchez une vidéo"
             onChange={handleChange}
             value={inputSearch}
+            required
          />
-         <Link className="button_link" to={`/searchpage/${inputSearch}`}>
-            <button className="searchbar searchbar__button" type="submit">
-               <i className="fa-solid fa-magnifying-glass"></i>
-            </button>
-         </Link>
+         {inputSearch !== '' ? (
+            <Link className="button_link" to={`/searchpage/${inputSearch}`}>
+               <button className="searchbar searchbar__button" type="submit">
+                  <i className="fa-solid fa-magnifying-glass"></i>
+               </button>
+            </Link>
+         ) : (
+            ''
+         )}
       </form>
    )
 }
