@@ -21,7 +21,7 @@ const SearchPage = () => {
             `https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=60&type=video&q=${searchWord}&safeSearch=none&key=${key}`
          )
          .then((response) => {
-            setVideoFound(response?.data?.items)
+            setVideoFound(response.data.items)
             setLoading(false)
          })
          .catch(() => setError(true))
@@ -39,7 +39,7 @@ const SearchPage = () => {
 
    useEffect(() => {
       if (error) {
-         navigate('/errorpage')
+         return <ErrorPage />
       }
    }, [accessToken])
 
@@ -52,7 +52,7 @@ const SearchPage = () => {
                      videoFound?.map((item, id) => (
                         <Link
                            className="video__link__style"
-                           to={`/videoplay/${item.id.videoId}/${item?.snippet?.channelId}`}
+                           to={`/videoplay/${item.id.videoId}/${item.snippet.channelId}`}
                            key={id}
                         >
                            <Card key={id} video={item} />
