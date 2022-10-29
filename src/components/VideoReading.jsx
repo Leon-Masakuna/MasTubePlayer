@@ -7,6 +7,7 @@ import numeral from 'numeral'
 import Loader from './Loader'
 import ErrorPage from './ErrorPage'
 import { HashLink } from 'react-router-hash-link'
+import SearchCard from './SearchCard'
 
 const VideoReading = () => {
    //States
@@ -182,7 +183,7 @@ const VideoReading = () => {
                         to={`/videoplay/${item.id.videoId}/${item.snippet.channelId}#page`}
                         key={id}
                      >
-                        <Card key={id} video={item} />
+                        <SearchCard key={id} video={item} />
                      </HashLink>
                   ))
                ) : (
