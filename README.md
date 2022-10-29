@@ -17,6 +17,7 @@ Using the two in conjunction is one of the fastest ways to build a web app.
 By default, Replit runs the `dev` script, but you can configure it by changing the `run` field in the [configuration file](#.replit). Here are the vite docs for [serving production websites](https://vitejs.dev/guide/build.html)
 
 -  To start this in local, you should write "npm run dev"
+-  I used nev file to hide my keys
 
 ### Typescript
 
@@ -36,5 +37,6 @@ Such as :
     "eslint" or "eslint-plugin-react": for static test
     "prettier": for code format
     "@testinglibrary/react"
+    "react-show-more-text" : for hidding long text through 2 lines
 
 For any contact : masakunamfengleon@gmail.com

@@ -127,6 +127,7 @@ HashLink,
       width: 45vh;
       position: fixed;
       background-color: #d9d9d9;
+      margin-left: -46%;
    }
 
    iframe {
@@ -155,7 +156,7 @@ HashLink,
    }
 
    .related__videos {
-      margin-top: 41vh;
+      margin-top: 43vh;
    }
 
    .channel__image {
