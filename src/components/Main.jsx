@@ -46,7 +46,6 @@ const Main = () => {
       }
    }, [accessToken])
 
-   console.log('erreur : ', error)
    //render
    return (
       <>
