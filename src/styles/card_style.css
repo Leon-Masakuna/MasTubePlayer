@@ -13,7 +13,7 @@
    flex-direction: column;
    justify-content: flex-start;
    align-items: center;
-   height: 8cm;
+   height: 7.1cm;
    border: none;
 }
 
@@ -72,6 +72,7 @@
 }
 
 .video__title {
+   margin-top: 10px;
    margin-bottom: 0;
 }
 
