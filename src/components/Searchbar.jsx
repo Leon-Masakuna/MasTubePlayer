@@ -10,14 +10,12 @@ const Searchbar = () => {
       setInputSearch(e.target.value)
    }
 
-   const navigate = useNavigate()
-
    return (
       <form className="searchbar__container">
          <input
             className="searchbar"
             type="search"
-            placeholder="Recherchez une vidéo"
+            placeholder="search for a video"
             onChange={handleChange}
             value={inputSearch}
             required
@@ -29,7 +27,13 @@ const Searchbar = () => {
                </button>
             </Link>
          ) : (
-            ''
+            <button
+               disabled
+               className="searchbar searchbar__button"
+               type="submit"
+            >
+               <i className="fa-solid fa-magnifying-glass"></i>
+            </button>
          )}
       </form>
    )
