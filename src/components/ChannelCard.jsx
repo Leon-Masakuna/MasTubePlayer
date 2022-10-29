@@ -10,7 +10,9 @@ const ChannelCard = ({ video }) => {
                   src={video.snippet.thumbnails.medium.url}
                   alt="image video"
                />
-               <p className="video__title">{video.snippet.title}</p>
+               <p className="video__title channel__card__title">
+                  {video.snippet.title}
+               </p>
             </div>
          </div>
       </div>
