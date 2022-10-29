@@ -33,6 +33,7 @@ nav {
    gap: 5px;
    justify-content: center;
    align-items: center;
+   color: #e7eff3;
 }
 
 .home__icon,
@@ -76,6 +77,10 @@ nav {
    font-size: 20px;
    font-weight: bolder;
    margin-left: -10%;
+}
+
+.link {
+   text-decoration: none;
 }
 
 @media screen and (max-width: 425px) {

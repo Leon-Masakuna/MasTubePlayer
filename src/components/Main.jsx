@@ -40,11 +40,12 @@ const Main = () => {
       }
    }, [accessToken, navigate])
 
-   /*  if (error || videos == undefined) {
-      navigate('/errorpage') || <ErrorPage />
-   } */
+   useEffect(() => {
+      if (error) {
+         return <ErrorPage />
+      }
+   }, [accessToken])
 
-   console.log('erreur : ', error)
    //render
    return (
       <>

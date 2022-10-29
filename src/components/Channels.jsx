@@ -2,6 +2,7 @@ import React from 'react'
 import { useEffect, useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import Card from './Card'
+import ChannelCard from './ChannelCard'
 import ErrorPage from './ErrorPage'
 import Loader from './Loader'
 
@@ -24,7 +25,7 @@ const Channels = () => {
       })
          .then((res) => res.json())
          .then((data) => {
-            setVideos(data?.items)
+            setVideos(data.items)
             setLoading(false)
          })
          .catch(() => setError(true))
@@ -36,9 +37,11 @@ const Channels = () => {
       }
    }, [accessToken, navigate])
 
-   /* if (error || videos == undefined) {
-      navigate('/errorpage') || <ErrorPage />
-   } */
+   useEffect(() => {
+      if (error) {
+         return <ErrorPage />
+      }
+   }, [accessToken])
 
    return (
       <>
@@ -59,7 +62,7 @@ const Channels = () => {
                                     to={`/chanelVideosPage/${channelId}`}
                                     key={id}
                                  >
-                                    <Card key={id} video={item} />
+                                    <ChannelCard key={id} video={item} />
                                  </Link>
                               )
                            })

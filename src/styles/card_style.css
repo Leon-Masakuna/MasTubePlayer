@@ -13,15 +13,46 @@
    flex-direction: column;
    justify-content: flex-start;
    align-items: center;
+   height: 8cm;
+}
+
+.video__info {
+   display: flex;
+   flex-direction: row;
+   justify-content: flex-start;
+   align-items: flex-start;
+   gap: 0.5vw;
+}
+
+.channel__card__items {
+   width: 320px;
+   border-radius: 5px;
+   background-color: rgb(217, 217, 217, 100%);
+   border: 1px solid #672280;
+   transition: transform 0.25s ease-out;
+   margin-bottom: 5px;
+   text-align: center;
+   padding-bottom: 0px;
+   font-size: 14px;
+   color: #672280;
+   display: flex;
+   flex-direction: column;
+   justify-content: flex-start;
+   align-items: center;
 }
 
 .card__items:hover {
    background-color: #672280;
    border: 1px solid rgb(217, 217, 217, 100%);
    color: rgb(217, 217, 217, 100%);
+   cursor: pointer;
+   color: #d9d9d9;
 }
 
-.card-items:hover {
+.channel__card__items:hover {
+   background-color: #672280;
+   border: 1px solid rgb(217, 217, 217, 100%);
+   color: rgb(217, 217, 217, 100%);
    cursor: pointer;
    color: #d9d9d9;
 }
@@ -32,9 +63,20 @@
    margin-top: 10px;
 }
 
-.video__title {
+.video__title,
+.video__info {
    width: 260px;
    text-align: left;
+}
+
+.video__title {
+   margin-bottom: 0;
+}
+
+.channel__title {
+   font-size: 12px;
+   margin-bottom: 15px;
+   font-weight: bolder;
 }
 
 .image:hover,
@@ -72,6 +114,13 @@ h4 {
    width: 40px;
    height: 40px;
    border-radius: 50%;
+}
+
+.channel__card__title {
+   font-size: 14px;
+   margin-bottom: 15px;
+   font-weight: bolder;
+   text-align: left;
 }
 
 @media screen and (max-width: 425px) {

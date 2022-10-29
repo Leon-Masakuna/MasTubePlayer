@@ -4,6 +4,7 @@ import '../styles/sidebar_style.css'
 import Searchbar from './Searchbar'
 import Logout from './Logout'
 import { NavLink } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 
 const Navbar = () => {
    const profileImage = localStorage.getItem('item')
@@ -12,10 +13,12 @@ const Navbar = () => {
    return (
       <>
          <nav>
-            <div className="navbar__logo__name">
-               <i className="fa-brands fa-youtube nav--logo"></i>
-               <p className="navbar__site__title">{appName}</p>
-            </div>
+            <Link to={'/dashbord'} className="link">
+               <div className="navbar__logo__name">
+                  <i className="fa-brands fa-youtube nav--logo"></i>
+                  <p className="navbar__site__title">{appName}</p>
+               </div>
+            </Link>
             <div className="navigation">
                <NavLink
                   className={(nav) =>

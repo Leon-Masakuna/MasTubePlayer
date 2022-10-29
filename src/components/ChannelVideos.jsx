@@ -2,9 +2,9 @@ import React from 'react'
 import { useParams, Link, useNavigate } from 'react-router-dom'
 // import Sidebar from './Sidebar'
 import { useState, useEffect } from 'react'
-import Card from './Card'
 import ErrorPage from './ErrorPage'
 import Loader from './Loader'
+import SearchCard from './SearchCard'
 
 const ChannelVideos = () => {
    //state
@@ -26,7 +26,7 @@ const ChannelVideos = () => {
       })
          .then((res) => res.json())
          .then((data) => {
-            setVideo(data?.items)
+            setVideo(data.items)
             setLoading(false)
          })
          .catch(() => setError(true))
@@ -38,9 +38,13 @@ const ChannelVideos = () => {
       }
    }, [accessToken, navigate])
 
-   /* if (error) {
-      return <ErrorPage />
-   } */
+   useEffect(() => {
+      if (error) {
+         return <ErrorPage />
+      }
+   }, [accessToken])
+
+   console.log('channels videos : ', video)
 
    return (
       <div>
@@ -54,10 +58,10 @@ const ChannelVideos = () => {
                         video.map((item, id) => (
                            <Link
                               className="video__link__style"
-                              to={`/videoplay/${item.id.videoId}/${item?.snippet?.channelId}`}
+                              to={`/videoplay/${item.id.videoId}/${item.snippet.channelId}`}
                               key={id}
                            >
-                              <Card key={id} video={item} />
+                              <SearchCard key={id} video={item} />
                            </Link>
                         ))
                      ) : (
