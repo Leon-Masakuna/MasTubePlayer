@@ -36,5 +36,6 @@ Such as :
     "eslint" or "eslint-plugin-react": for static test
     "prettier": for code format
     "@testinglibrary/react"
+    "react-show-more-text" : for hidding long text through 2 lines
 
 For any contact : masakunamfengleon@gmail.com
