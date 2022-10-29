@@ -5,6 +5,7 @@ import { useState, useEffect } from 'react'
 import Card from './Card'
 import { useNavigate } from 'react-router-dom'
 import Loader from './Loader'
+import SearchCard from './SearchCard'
 
 const SearchPage = () => {
    const navigate = useNavigate()
@@ -55,7 +56,7 @@ const SearchPage = () => {
                            to={`/videoplay/${item.id.videoId}/${item.snippet.channelId}`}
                            key={id}
                         >
-                           <Card key={id} video={item} />
+                           <SearchCard key={id} video={item} />
                         </Link>
                      ))
                   ) : (
