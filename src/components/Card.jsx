@@ -19,7 +19,7 @@ const Card = ({ video }) => {
                />
                <ShowMoreText
                   className="video__title"
-                  lines={2}
+                  lines={1}
                   more=""
                   less="Show less"
                   anchorClass="show-more-less-clickable"
