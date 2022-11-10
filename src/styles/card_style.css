@@ -16,6 +16,14 @@
    border: none;
 }
 
+.image_space_related_videos {
+   display: flex;
+   flex-direction: column;
+   justify-content: flex-start;
+   align-items: center;
+   gap: 10px;
+}
+
 .video__info {
    display: flex;
    flex-direction: row;
