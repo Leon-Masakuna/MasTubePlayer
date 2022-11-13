@@ -7,7 +7,7 @@ const ErrorPage = () => {
    const errorTitle = 'ERROR DETECTED'
    const errorDescription = 'Access token expired or Quotas have been Exceeded'
    const message =
-      "Please restart the application by loging out and try again. If it doesn't still work, try after 24 hours"
+      "Please restart the application by loging out and try again. If it does not still work, try after 24 hours"
    const contact = 'For any contact, write me an e-mail to :'
 
    return (
