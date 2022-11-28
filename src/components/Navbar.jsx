@@ -50,12 +50,14 @@ const Navbar = () => {
             </div>
             <Searchbar />
             <div className="navbar__logo__sign__up">
-               <div className="logout__component">
+              {/*  <div className="logout__component">
                   <Logout />
-               </div>
-               <div className="empty__space">
-                  <img className="profile__picture" src={profileImage} alt="" />
-               </div>
+               </div> */}
+               <Link to={'/userprofile'}>
+                  <div className="empty__space">
+                     <img className="profile__picture" src={profileImage} alt="" />
+                  </div>
+               </Link>
             </div>
          </nav>
       </>

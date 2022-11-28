@@ -5,6 +5,85 @@
    width: 130vh;
 }
 
+.commentaire{
+   margin-bottom: 1cm;
+}
+
+.comment-input{
+   display: flex;
+   gap: 20px;
+}
+
+.comment-part{
+   margin-top: 25px;
+   display: flex;
+   flex-direction: row;
+   gap: 60px;
+}
+
+.comment-part-2{
+   display: flex;
+   justify-content: center;
+   align-items: flex-start;
+   gap: 15px;
+   margin-top: 20px;
+}
+
+input.input{
+   border-top: none;
+   border-left: none;
+   border-right: none;
+   border-color: #979393;
+   width: 30vw;
+   outline: none;
+   background:none;
+}
+
+.comment-edit{
+   margin-top: 10px;
+   display: flex;
+   justify-content: left;
+   align-items: center;
+   gap: 10px;
+}
+
+.comment-time{
+   display: flex;
+   gap: 20px;
+}
+
+.comment-user{
+   display: flex;
+   justify-content: center;
+   align-items: flex-start;
+}
+
+.user-names{
+   display: flex;
+   flex-direction: column;
+}
+
+.profile-picture{
+   border-radius: 50%;
+   width: 40px;
+   height: 40px;
+}
+
+.comment-mentions{
+   display: flex;
+   gap: 15px;
+}
+
+.comment-replies{
+   display: flex;
+   gap: 15px;
+   margin-top: 15px;
+}
+
+a{
+   text-decoration: none;
+}
+
 .video__read__title {
    width: 128vh;
 }
