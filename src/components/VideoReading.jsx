@@ -8,6 +8,7 @@ import Loader from './Loader'
 import ErrorPage from './ErrorPage'
 import { HashLink } from 'react-router-hash-link'
 import SearchCard from './SearchCard'
+import Comment from './Comment'
 
 const VideoReading = () => {
    //States
@@ -19,7 +20,7 @@ const VideoReading = () => {
    const [error, setError] = useState(false)
 
    const key = import.meta.env.VITE_YOUTUBE_API_KEY
-   const fecthData = `https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=50&relatedToVideoId=${videoId}&type=video&key=${key}`
+   /* const fecthData = `https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=50&relatedToVideoId=${videoId}&type=video&key=${key}` */
 
    const fecthVideoById = `https://youtube.googleapis.com/youtube/v3/videos?part=snippet%2CcontentDetails%2Cstatistics&id=${videoId}&maxResults=50&key=${key}`
 
@@ -29,7 +30,7 @@ const VideoReading = () => {
    const accessToken = localStorage.getItem('token')
    const navigate = useNavigate()
 
-   useEffect(() => {
+   /* useEffect(() => {
       fetch(fecthData, {
          method: 'GET',
          headers: new Headers({ Authorization: `Bearer ${accessToken}` }),
@@ -40,7 +41,7 @@ const VideoReading = () => {
             setLoading(false)
          })
          .catch(() => setError(true))
-   }, [accessToken, videoId])
+   }, [accessToken, videoId]) */
 
    //UseEffect for videos ID
    useEffect(() => {
@@ -126,7 +127,6 @@ const VideoReading = () => {
                                          ).format('O.a')}
                                       </div>
                                       <div className="comment__infos">
-                                         Published :{' '}
                                          {moment(
                                             item.snippet.publishedAt
                                          ).fromNow()}
@@ -170,9 +170,10 @@ const VideoReading = () => {
                            : ''}
                      </div>
                   </div>
+                  <Comment />
                </div>
             </section>
-            <div className="related__videos">
+            {/* <div className="related__videos">
                {loading ? (
                   <Loader />
                ) : relatedVideos ? (
@@ -189,7 +190,7 @@ const VideoReading = () => {
                ) : (
                   <ErrorPage />
                )}
-            </div>
+            </div> */}
          </div>
       </div>
    )
