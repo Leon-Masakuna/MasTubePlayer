@@ -1,0 +1,49 @@
+.profile-photo{
+    border-radius: 50%;
+    width: 400px;
+    height: 400px;
+}
+
+.link, .back-arrow, .edit-button{
+    text-decoration: none;
+    color: #672280;
+}
+
+.edit-button{
+    cursor: pointer;
+}
+
+.container{
+    display: flex;
+    margin: 5vh 5vw;
+    gap: 25px;
+}
+
+.back-arrow, .edit-button{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.profile-container{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 5%;
+    margin: 0 5vw;
+}
+
+.row{
+    display: flex;
+    gap: 15px;
+}
+
+h2{
+    color: #672280;
+}
+
+h2:hover{
+    cursor: pointer;
+}
