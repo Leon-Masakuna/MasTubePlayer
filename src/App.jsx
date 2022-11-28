@@ -10,6 +10,8 @@ import SearchResultPage from './pages/SearchResultPage'
 import Navbar from './components/Navbar'
 import VideoReadingPage from './pages/VideoReadingPage'
 import ErrorPage from './components/ErrorPage'
+import Profile from './components/Profile'
+import ProfileUpdate from './components/ProfileUpdate'
 
 const clientId =
    '207208175376-74k3vacevfg0a05ju6tuld9ejsogvpm9.apps.googleusercontent.com'
@@ -94,6 +96,8 @@ export default function App() {
                   </Layout>
                }
             />
+            <Route path="/userprofile" element={<Profile />} />
+            <Route path="/userprofiledit" element={<ProfileUpdate />} />
          </Routes>
       </div>
    )
