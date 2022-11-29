@@ -1,20 +1,50 @@
-import React from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
 import "../styles/profileUpdate_style.css"
 
 const ProfileUpdate = () => {
+    const ref = useRef()
+    const handleClick = (e) => {
+        ref.current.click()
+    }
+
+    const [selectedImage, setSelectedImage] = useState(null);
+    const [imageUrl, setImageUrl] = useState(null);
+
+    useEffect(() => {
+        if (selectedImage) {
+          setImageUrl(URL.createObjectURL(selectedImage));
+        }
+      }, [selectedImage]);
+
     return (
         <div className='profile_container'>
             <div className='photo_upload'>
-                <div className='image'>
-                    <img 
-                        src="https://ca.slack-edge.com/T03BH6JN601-U03FK6874CF-fb4094095857-512"
-                        alt="Léon Mfeng"
-                        className="profile" 
-                    />
+                <div className='image' htmlFor="selected-image">
+                    {imageUrl && selectedImage ? (
+                        <img 
+                            src={{imageUrl}}
+                            alt={selectedImage.name}
+                            className="profile" 
+                        />
+                    ):(
+                        <img 
+                            src="https://ca.slack-edge.com/T03BH6JN601-U03FK6874CF-fb4094095857-512"
+                            alt="profile-picture"
+                            className="profile" 
+                        />
+                    )}                  
                 </div>
-                <div>
-                    <i className="fa-solid fa-camera photo_upload"></i>
+                <div onClick={handleClick} >
+                    <i className="fa-solid fa-camera photo_upload img_download_icon"></i>
+                    <input 
+                        ref={ref} 
+                        type="file" 
+                        accept=".jpg,.jpeg,.png"
+                        style={{ display: 'none' }}
+                        id="selected-image"
+                        onChange={e => setSelectedImage(e.target.files[0])}
+                    />
                 </div>
             </div>
             <div className='identities'>
