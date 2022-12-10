@@ -13,6 +13,8 @@ const Logout = () => {
       navigate('/')
       localStorage.removeItem('item')
       localStorage.removeItem('token')
+      localStorage.removeItem('userId')
+      localStorage.removeItem('imageUrl')
    }
    return (
       <div className="logout__container">

@@ -1,21 +1,40 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import { GoogleLogin } from 'react-google-login'
 import { Link } from 'react-router-dom'
 import { useNavigate } from 'react-router-dom'
 import '../styles/login_style.css'
 import { render } from '@testing-library/react'
+import axios from 'axios'
 
 const Login = () => {
    const clientId = import.meta.env.VITE_YOUTUBE_CLIENT_ID
 
    const navigate = useNavigate()
    const onSucces = (res) => {
+      console.log('Resultats : ', res)
       const profilePicture = res.profileObj['imageUrl']
       localStorage.setItem('item', profilePicture)
       const accessToken = res.accessToken
       localStorage.setItem('token', accessToken)
 
       navigate('/dashbord')
+
+      axios
+         .post('http://localhost:8100/api/user', {
+            name: res.profileObj.givenName + ' ' + res.profileObj.familyName,
+            email: res.profileObj.email,
+            imageUrl: res.profileObj.imageUrl,
+         })
+         .then(
+            (response) => {
+               console.log('Response : ', response.data.user.imageUrl)
+               localStorage.setItem('userId', response.data.user._id)
+               localStorage.setItem('imageUrl', response.data.user.imageUrl)
+            },
+            (error) => {
+               console.log(error)
+            }
+         )
    }
 
    const accessToken = localStorage.getItem('token')
@@ -32,6 +51,10 @@ const Login = () => {
 
    const title = 'Connection'
    const accessPhrase = 'Access to MasTubePlayer'
+
+   //------------------------------------------------------------------------//
+
+   //------------------------------------------------------------------------//
 
    return (
       <div className="login__container">
@@ -57,7 +80,7 @@ const Login = () => {
                   onFailure={onFaillure}
                   cookiePolicy={'single_host_origin'}
                   isSignedIn={false}
-                  scope="https://www.googleapis.com/auth/youtube"
+                  scope={import.meta.env.VITE_YOUTUBE_SCOPE}
                />
             </Link>
          </div>
