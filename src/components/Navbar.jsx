@@ -7,7 +7,7 @@ import { NavLink } from 'react-router-dom'
 import { Link } from 'react-router-dom'
 
 const Navbar = () => {
-   const profileImage = localStorage.getItem('item')
+   const profileImage = localStorage.getItem('imageUrl')
    const appName = 'MasTubePlayer'
 
    return (
@@ -50,12 +50,16 @@ const Navbar = () => {
             </div>
             <Searchbar />
             <div className="navbar__logo__sign__up">
-              {/*  <div className="logout__component">
+               {/*  <div className="logout__component">
                   <Logout />
                </div> */}
-               <Link to={'/userprofile'}>
+               <Link to={`/userprofile/${localStorage.getItem('userId')}`}>
                   <div className="empty__space">
-                     <img className="profile__picture" src={profileImage} alt="" />
+                     <img
+                        className="profile__picture"
+                        src={profileImage}
+                        alt=""
+                     />
                   </div>
                </Link>
             </div>
