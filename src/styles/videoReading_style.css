@@ -9,6 +9,14 @@
    margin-bottom: 1cm;
 }
 
+.reply-button {
+   color: #672280;
+}
+
+.reply-button:hover {
+   cursor: pointer;
+}
+
 .comment-input {
    display: flex;
    gap: 20px;
