@@ -7,6 +7,8 @@ import axios from 'axios'
 
 const Comments = ({ currentUserId }) => {
    const [backendComments, setBackendComments] = useState([])
+   const [activeComment, setActiveComment] = useState(null)
+
    const [userData, setUserData] = useState([])
    const rootComments = backendComments
       .filter((backendComment) => backendComment.parentComment === null)
@@ -36,6 +38,7 @@ const Comments = ({ currentUserId }) => {
          .then((comment) => {
             setBackendComments([comment, ...backendComments])
          })
+      setActiveComment(null)
    }
 
    const fecthData = `http://localhost:8100/api/comment`
@@ -81,6 +84,10 @@ const Comments = ({ currentUserId }) => {
                key={rootComment._id}
                comment={rootComment}
                replies={getReplies(rootComment._id)}
+               currentUserId={currentUserId}
+               activeComment={activeComment}
+               setActiveComment={setActiveComment}
+               addComment={addComment}
             />
          ))}
       </div>

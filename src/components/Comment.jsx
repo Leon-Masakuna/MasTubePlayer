@@ -1,7 +1,23 @@
 import React from 'react'
 import moment from 'moment/moment'
+import CommentForm from './CommentForm'
 
-const Comment = ({ comment, replies }) => {
+const Comment = ({
+   comment,
+   replies,
+   currentUserId,
+   activeComment,
+   setActiveComment,
+   addComment,
+   parentComment = null,
+}) => {
+   const canReply = Boolean(currentUserId)
+   const isReplying =
+      activeComment &&
+      activeComment.type === 'replying' &&
+      activeComment.id == comment._id
+
+   const replyId = parentComment ? parentComment : comment._id
    return (
       <div className="comment-part-2">
          <div className="comment-user">
@@ -27,14 +43,32 @@ const Comment = ({ comment, replies }) => {
                      <i className="fa-solid fa-thumbs-down"></i>
                   </div>
                   <div>
-                     <a href="">Reply</a>
+                     {canReply && (
+                        <div
+                           className="reply-button"
+                           onClick={() =>
+                              setActiveComment({
+                                 id: comment._id,
+                                 type: 'replying',
+                              })
+                           }
+                        >
+                           Reply
+                        </div>
+                     )}
                   </div>
                </div>
-               <div className="comment-replies">
+               <div className="isReplying">
+                  {isReplying && (
+                     <CommentForm
+                        submitLabel="Reply"
+                        handleSubmit={(text) => addComment(text, replyId)}
+                     />
+                  )}
                   {replies.length > 0 && (
                      <div>
                         <div className="comment-replies">
-                           <div>
+                           <div className="replies">
                               <i className="fa-solid fa-square-caret-up"></i>
                            </div>
                            <div>replies</div>
@@ -44,6 +78,10 @@ const Comment = ({ comment, replies }) => {
                               comment={reply}
                               key={reply._id}
                               replies={[]}
+                              addComment={addComment}
+                              parentComment={comment._id}
+                              activeComment={activeComment}
+                              setActiveComment={setActiveComment}
                            />
                         ))}
                      </div>
