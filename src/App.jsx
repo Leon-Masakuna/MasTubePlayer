@@ -97,7 +97,7 @@ export default function App() {
                }
             />
             <Route path="/userprofile/:userId" element={<Profile />} />
-            <Route path="/userprofiledit" element={<ProfileUpdate />} />
+            <Route path="/userprofiledit/:userId" element={<ProfileUpdate />} />
          </Routes>
       </div>
    )
