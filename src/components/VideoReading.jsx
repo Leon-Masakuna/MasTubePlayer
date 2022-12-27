@@ -8,7 +8,7 @@ import Loader from './Loader'
 import ErrorPage from './ErrorPage'
 import { HashLink } from 'react-router-hash-link'
 import SearchCard from './SearchCard'
-import Comment from './Comment'
+import Comments from './Comments'
 
 const VideoReading = () => {
    //States
@@ -170,7 +170,7 @@ const VideoReading = () => {
                            : ''}
                      </div>
                   </div>
-                  <Comment />
+                  <Comments currentUserId={localStorage.getItem('userId')} />
                </div>
             </section>
             {/* <div className="related__videos">
