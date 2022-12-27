@@ -16,7 +16,10 @@ const ProfileCard = ({ user }) => {
                <Logout />
             </div>
             <div className="edit-button">
-               <Link to={'/userprofiledit'} className="link">
+               <Link
+                  to={`/userprofiledit/${localStorage.getItem('userId')}`}
+                  className="link"
+               >
                   <i className="fa-solid fa-pen-to-square"></i> {' Edit'}
                </Link>
             </div>
