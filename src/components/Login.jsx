@@ -1,7 +1,6 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect } from 'react'
 import { GoogleLogin } from 'react-google-login'
-import { Link } from 'react-router-dom'
-import { useNavigate } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import '../styles/login_style.css'
 import { render } from '@testing-library/react'
 import axios from 'axios'
@@ -11,13 +10,8 @@ const Login = () => {
 
    const navigate = useNavigate()
    const onSucces = (res) => {
-      console.log('Resultats : ', res)
-      const profilePicture = res.profileObj['imageUrl']
-      localStorage.setItem('item', profilePicture)
       const accessToken = res.accessToken
       localStorage.setItem('token', accessToken)
-
-      navigate('/dashbord')
 
       axios
          .post('http://localhost:8100/api/user', {
@@ -27,9 +21,11 @@ const Login = () => {
          })
          .then(
             (response) => {
-               console.log('Response : ', response.data.user.imageUrl)
+               console.log('Response : ', response)
                localStorage.setItem('userId', response.data.user._id)
                localStorage.setItem('imageUrl', response.data.user.imageUrl)
+
+               navigate('/dashbord')
             },
             (error) => {
                console.log(error)
@@ -51,8 +47,6 @@ const Login = () => {
 
    const title = 'Connection'
    const accessPhrase = 'Access to MasTubePlayer'
-
-   //------------------------------------------------------------------------//
 
    //------------------------------------------------------------------------//
 

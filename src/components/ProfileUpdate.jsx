@@ -1,15 +1,64 @@
+import axios from 'axios'
 import React, { useEffect, useRef, useState } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useParams } from 'react-router-dom'
 import '../styles/profileUpdate_style.css'
 
 const ProfileUpdate = () => {
+   const { userId } = useParams()
+   const [user, setUser] = useState({
+      name: '',
+      email: '',
+      imageUrl: '',
+      linkedin: '',
+      github: '',
+   })
+
+   const [selectedImage, setSelectedImage] = useState(null)
+   const [imageUrl, setImageUrl] = useState(null)
+
+   const fetchData = `http://localhost:8100/api/user/${userId}`
+   const accessToken = localStorage.getItem('token')
+
    const ref = useRef()
    const handleClick = (e) => {
       ref.current.click()
    }
 
-   const [selectedImage, setSelectedImage] = useState(null)
-   const [imageUrl, setImageUrl] = useState(null)
+   const handleSubmit = () => {
+      axios
+         .put(`http://localhost:8100/api/user/${userId}`, {
+            name: user.name,
+            email: user.email,
+            imageUrl: user.imageUrl,
+            linkedin: user.linkedin,
+            github: user.github,
+         })
+         .then(
+            (response) => {
+               console.log('response : ', response)
+            },
+            (error) => {
+               console.log(error)
+            }
+         )
+   }
+   console.log('user submission : ', user.name)
+
+   useEffect(() => {
+      fetch(fetchData, {
+         method: 'GET',
+         headers: new Headers({ Authorization: `Bearer ${accessToken}` }),
+      })
+         .then((res) => res.json())
+         .then((data) => {
+            setUser(data)
+            console.log('items: ', data)
+         })
+   }, [])
+
+   const handleChange = (event) => {
+      setUser(event.target.value)
+   }
 
    useEffect(() => {
       if (selectedImage) {
@@ -29,7 +78,7 @@ const ProfileUpdate = () => {
                   />
                ) : (
                   <img
-                     src="https://ca.slack-edge.com/T03BH6JN601-U03FK6874CF-fb4094095857-512"
+                     src={user.imageUrl}
                      alt="profile-picture"
                      className="profile"
                   />
@@ -47,7 +96,7 @@ const ProfileUpdate = () => {
                />
             </div>
          </div>
-         <div className="identities">
+         <form className="identities">
             <div className="identities_upload">
                <div>
                   <i className="fa-solid fa-user"></i>
@@ -59,6 +108,9 @@ const ProfileUpdate = () => {
                      id=""
                      className="input_fields"
                      placeholder="Léon Masakuna"
+                     value={user.name}
+                     // ref={inputRef}
+                     onChange={handleChange}
                   />
                </div>
             </div>
@@ -73,6 +125,8 @@ const ProfileUpdate = () => {
                      id=""
                      className="input_fields"
                      placeholder="masakunamfengleon@gmail.com"
+                     value={user.email}
+                     onChange={handleChange}
                   />
                </div>
             </div>
@@ -86,7 +140,9 @@ const ProfileUpdate = () => {
                      name=""
                      id=""
                      className="input_fields"
-                     placeholder="https://www.linkedin.com/in/l%C3%A9on-masakuna-mfeng-130303201/"
+                     placeholder="linkedin link"
+                     value={user.linkedin}
+                     onChange={handleChange}
                   />
                </div>
             </div>
@@ -100,7 +156,9 @@ const ProfileUpdate = () => {
                      name=""
                      id=""
                      className="input_fields"
-                     placeholder="https://github.com/Leon-Masakuna"
+                     placeholder="github link"
+                     value={user.github}
+                     onChange={handleChange}
                   />
                </div>
             </div>
@@ -112,10 +170,12 @@ const ProfileUpdate = () => {
                   <button>Cancel</button>
                </Link>
                <Link className="button_link">
-                  <button>Validate</button>
+                  <button type="submit" onClick={handleSubmit}>
+                     Validate
+                  </button>
                </Link>
             </div>
-         </div>
+         </form>
       </div>
    )
 }

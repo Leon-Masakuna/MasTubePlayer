@@ -5,41 +5,45 @@
    width: 130vh;
 }
 
-.commentaire{
+.commentaire {
    margin-bottom: 1cm;
 }
 
-.comment-input{
+.comment-input {
    display: flex;
    gap: 20px;
 }
 
-.comment-part{
+.form-button:hover {
+   cursor: pointer;
+}
+
+.comment-part {
    margin-top: 25px;
    display: flex;
    flex-direction: row;
    gap: 60px;
 }
 
-.comment-part-2{
+.comment-part-2 {
    display: flex;
-   justify-content: center;
+   justify-content: flex-start;
    align-items: flex-start;
    gap: 15px;
    margin-top: 20px;
 }
 
-input.input{
+input.input {
    border-top: none;
    border-left: none;
    border-right: none;
    border-color: #979393;
    width: 30vw;
    outline: none;
-   background:none;
+   background: none;
 }
 
-.comment-edit{
+.comment-edit {
    margin-top: 10px;
    display: flex;
    justify-content: left;
@@ -47,40 +51,41 @@ input.input{
    gap: 10px;
 }
 
-.comment-time{
+.comment-time {
    display: flex;
    gap: 20px;
+   margin-bottom: -20px;
 }
 
-.comment-user{
+.comment-user {
    display: flex;
    justify-content: center;
    align-items: flex-start;
 }
 
-.user-names{
+.user-names {
    display: flex;
    flex-direction: column;
 }
 
-.profile-picture{
+.profile-picture {
    border-radius: 50%;
    width: 40px;
    height: 40px;
 }
 
-.comment-mentions{
+.comment-mentions {
    display: flex;
    gap: 15px;
 }
 
-.comment-replies{
+.comment-replies {
    display: flex;
    gap: 15px;
    margin-top: 15px;
 }
 
-a{
+a {
    text-decoration: none;
 }
 
