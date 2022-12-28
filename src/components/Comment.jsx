@@ -1,6 +1,8 @@
 import React from 'react'
 import moment from 'moment/moment'
 import CommentForm from './CommentForm'
+import Like from './Like'
+import Dislike from './Dislike'
 
 const Comment = ({
    comment,
@@ -35,13 +37,8 @@ const Comment = ({
             <div>
                <p>{comment.message}</p>
                <div className="comment-mentions">
-                  <div>
-                     <i className="fa-solid fa-thumbs-up"></i>
-                     <span> 0</span>
-                  </div>
-                  <div>
-                     <i className="fa-solid fa-thumbs-down"></i>
-                  </div>
+                  <Like />
+                  <Dislike />
                   <div>
                      {canReply && (
                         <div
