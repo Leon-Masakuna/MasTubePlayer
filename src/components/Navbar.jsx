@@ -5,6 +5,7 @@ import Searchbar from './Searchbar'
 import Logout from './Logout'
 import { NavLink } from 'react-router-dom'
 import { Link } from 'react-router-dom'
+import Notification from './Notification'
 
 const Navbar = () => {
    const profileImage = localStorage.getItem('imageUrl')
@@ -50,9 +51,7 @@ const Navbar = () => {
             </div>
             <Searchbar />
             <div className="navbar__logo__sign__up">
-               {/*  <div className="logout__component">
-                  <Logout />
-               </div> */}
+               <Notification />
                <Link to={`/userprofile/${localStorage.getItem('userId')}`}>
                   <div className="empty__space">
                      <img
