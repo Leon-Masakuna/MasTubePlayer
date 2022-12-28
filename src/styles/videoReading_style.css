@@ -9,6 +9,10 @@
    margin-bottom: 1cm;
 }
 
+.fa-solid:hover {
+   cursor: pointer;
+}
+
 .reply-button {
    color: #672280;
 }

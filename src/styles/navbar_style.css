@@ -37,6 +37,25 @@ nav {
    color: #e7eff3;
 }
 
+.navbar__logo__sign__up {
+   gap: 20px;
+}
+
+.notification {
+   font-size: 32px;
+   position: relative;
+}
+
+.counter {
+   font-size: 14px;
+   background-color: red;
+   border-radius: 50%;
+   padding: 2.5px 6px;
+   position: absolute;
+   margin-top: -6px;
+   margin-left: -12px;
+}
+
 .home__icon,
 .sub__icon {
    display: none;
