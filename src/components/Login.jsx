@@ -21,9 +21,10 @@ const Login = () => {
          })
          .then(
             (response) => {
-               console.log('Response : ', response)
+               console.log('Response : ', response, response.data.user.name)
                localStorage.setItem('userId', response.data.user._id)
                localStorage.setItem('imageUrl', response.data.user.imageUrl)
+               localStorage.setItem('userName', response.data.user.name)
 
                navigate('/dashbord')
             },

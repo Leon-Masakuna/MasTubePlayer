@@ -3,6 +3,7 @@ import moment from 'moment/moment'
 import CommentForm from './CommentForm'
 import Like from './Like'
 import Dislike from './Dislike'
+import { useState } from 'react'
 
 const Comment = ({
    comment,
@@ -13,31 +14,33 @@ const Comment = ({
    addComment,
    parentComment = null,
 }) => {
+   const [likeComments, setLikeComments] = useState(comment)
    const canReply = Boolean(currentUserId)
    const isReplying =
       activeComment &&
       activeComment.type === 'replying' &&
       activeComment.id == comment._id
 
+   //    console.log('likecomments : ', likeComments)
    const replyId = parentComment ? parentComment : comment._id
    return (
       <div className="comment-part-2">
          <div className="comment-user">
             <img
-               src="https://ca.slack-edge.com/T03BH6JN601-U03FK6874CF-fb4094095857-512"
+               src={comment.userImage}
                alt="Léon Mfeng"
                className="profile-picture"
             />
          </div>
          <div className="user-names">
             <div className="comment-time">
-               <p>{'Léon Masakuna'}</p>
+               <p>{comment.userName}</p>
                <p>{moment(comment.createdAt).fromNow()}</p>
             </div>
             <div>
                <p>{comment.message}</p>
                <div className="comment-mentions">
-                  <Like />
+                  <Like comment={likeComments} />
                   <Dislike />
                   <div>
                      {canReply && (
