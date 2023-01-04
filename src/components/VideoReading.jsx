@@ -91,7 +91,8 @@ const VideoReading = () => {
                   <iframe
                      width="560"
                      height="315"
-                     src={`https://www.youtube.com/embed/${videoId}?autoplay=1`}
+                     // ?autoplay=1
+                     src={`https://www.youtube.com/embed/${videoId}`}
                      title="YouTube video player"
                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                      allowFullScreen="allowFullScreen"
@@ -120,12 +121,12 @@ const VideoReading = () => {
                                             item.statistics.likeCount
                                          ).format('O.a')}
                                       </div>
-                                      <div className="comment__infos">
+                                      {/* <div className="comment__infos">
                                          Comments :{' '}
                                          {numeral(
                                             item.statistics.commentCount
                                          ).format('O.a')}
-                                      </div>
+                                      </div> */}
                                       <div className="comment__infos">
                                          {moment(
                                             item.snippet.publishedAt
@@ -170,7 +171,10 @@ const VideoReading = () => {
                            : ''}
                      </div>
                   </div>
-                  <Comments currentUserId={localStorage.getItem('userId')} />
+                  <Comments
+                     currentUserId={localStorage.getItem('userId')}
+                     videoId={videoId}
+                  />
                </div>
             </section>
             {/* <div className="related__videos">
