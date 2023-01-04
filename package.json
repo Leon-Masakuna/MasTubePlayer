@@ -36,6 +36,7 @@
     "react-numeral": "^1.1.1",
     "react-router-dom": "^6.4.1",
     "react-router-hash-link": "^2.4.3",
-    "react-show-more-text": "^1.6.2"
+    "react-show-more-text": "^1.6.2",
+    "socket.io-client": "^4.5.4"
   }
 }
