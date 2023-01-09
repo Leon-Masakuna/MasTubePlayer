@@ -12,7 +12,7 @@ const Like = ({ comment }) => {
    const getLikes = () => {
       socket.emit('getLikes', {})
    }
-   //    console.log('likes : ', comment)
+   // console.log('likes : ', likeCounts)
 
    useEffect(() => {
       getLikes()
@@ -27,6 +27,20 @@ const Like = ({ comment }) => {
          commentId: comment._id,
          userId: localStorage.getItem('userId'),
       })
+
+      socket.emit('notificationSend', {
+         description: ' has liked your comment there is ',
+         commentId: comment._id,
+         userIdSender: localStorage.getItem('userId'),
+         userIdSenderName: localStorage.getItem('userName'),
+         userIdSenderImage: localStorage.getItem('imageUrl'),
+         userIdReceiver: comment.userId,
+      })
+
+      /* socket.emit('likeDeleted', (id) => {
+         id == likeCounts._id
+         console.log(id)
+      }) */
    }
 
    return (
