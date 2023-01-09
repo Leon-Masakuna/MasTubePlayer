@@ -41,7 +41,7 @@ const Comment = ({
                <p>{comment.message}</p>
                <div className="comment-mentions">
                   <Like comment={likeComments} />
-                  <Dislike />
+                  <Dislike comment={likeComments} />
                   <div>
                      {canReply && (
                         <div
