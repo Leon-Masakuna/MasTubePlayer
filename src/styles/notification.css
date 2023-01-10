@@ -14,6 +14,11 @@
    margin-left: -580px;
 }
 
+.hashlink {
+   text-decoration: none;
+   color: #e7eff3;
+}
+
 .popup-list {
    margin: 15px 0;
    display: flex;
