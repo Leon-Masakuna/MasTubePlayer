@@ -6,6 +6,10 @@ const socket = socketIO.connect('http://localhost:8100')
 const Notification = () => {
    const [modal, setModal] = useState(false)
    const [notifications, setNotifications] = useState([])
+   const Rings = notifications.filter(
+      (notification) =>
+         notification.userIdReceiver === localStorage.getItem('userId')
+   )
 
    const showPopUp = () => {
       setModal(!modal)
@@ -30,7 +34,7 @@ const Notification = () => {
       <>
          <div className="notification" onClick={showPopUp}>
             <i className="fa-solid fa-bell fa-comment" onClick={showPopUp}></i>
-            <span className="counter">{notifications.length}</span>
+            <span className="counter">{Rings.length}</span>
          </div>
          {modal &&
             notifications.map(() => {
