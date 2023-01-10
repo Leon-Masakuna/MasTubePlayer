@@ -95,7 +95,7 @@ const Comments = ({ currentUserId, videoId }) => {
             <div>
                <img
                   src={localStorage.getItem('imageUrl')}
-                  alt="Léon Mfeng"
+                  alt={localStorage.getItem('userName')}
                   className="profile-picture"
                />
             </div>

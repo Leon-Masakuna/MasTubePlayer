@@ -3,10 +3,15 @@ import React, { useEffect } from 'react'
 import { useState } from 'react'
 import '../styles/notification.css'
 import Message from './Message'
+import { HashLink } from 'react-router-hash-link'
 
 const socket = socketIO.connect('http://localhost:8100')
 const NotificationPopup = ({ showPopUp, notifications }) => {
    const [notificationRows, setNotificationRows] = useState([])
+   const Rings = notificationRows.filter(
+      (notification) =>
+         notification.userIdReceiver === localStorage.getItem('userId')
+   )
 
    const getNotifications = () => {
       socket.emit('getNotifications', {})
@@ -22,7 +27,7 @@ const NotificationPopup = ({ showPopUp, notifications }) => {
       )
    }, [socket, notifications])
 
-   // console.log('popup : ', notificationRows)
+   // console.log('popup : ', Rings)
 
    return (
       <div className="popup-container">
@@ -33,8 +38,17 @@ const NotificationPopup = ({ showPopUp, notifications }) => {
                <i className="fa-solid fa-circle-xmark close-button"></i>
             </h1>
          </div>
-         {notificationRows.map((notification) => {
-            return <Message notification={notification} />
+         {Rings.map((notification) => {
+            return (
+               <HashLink
+                  onClick={showPopUp}
+                  key={notification._id}
+                  to={`/videoplay/#${notification.commentId}`}
+                  className="hashlink"
+               >
+                  <Message notification={notification} />
+               </HashLink>
+            )
          })}
       </div>
    )

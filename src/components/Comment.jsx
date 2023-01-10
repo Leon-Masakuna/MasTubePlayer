@@ -21,10 +21,16 @@ const Comment = ({
       activeComment.type === 'replying' &&
       activeComment.id == comment._id
 
-   //    console.log('likecomments : ', likeComments)
+   const [commentReplies, setCommentReplies] = useState(false)
+
+   const showCommentReplies = () => {
+      setCommentReplies(!commentReplies)
+   }
+
+   //console.log('likecomments : ', likeComments)
    const replyId = parentComment ? parentComment : comment._id
    return (
-      <div className="comment-part-2">
+      <div id={comment._id} className="comment-part-2">
          <div className="comment-user">
             <img
                src={comment.userImage}
@@ -69,21 +75,28 @@ const Comment = ({
                      <div>
                         <div className="comment-replies">
                            <div className="replies">
-                              <i className="fa-solid fa-square-caret-up"></i>
+                              <i
+                                 className="fa-solid fa-square-caret-up"
+                                 onClick={showCommentReplies}
+                              ></i>
                            </div>
-                           <div>replies</div>
+                           <div>{replies.length} replies</div>
                         </div>
-                        {replies.map((reply) => (
-                           <Comment
-                              comment={reply}
-                              key={reply._id}
-                              replies={[]}
-                              addComment={addComment}
-                              parentComment={comment._id}
-                              activeComment={activeComment}
-                              setActiveComment={setActiveComment}
-                           />
-                        ))}
+                        {commentReplies && (
+                           <div className="replies-section">
+                              {replies.map((reply) => (
+                                 <Comment
+                                    comment={reply}
+                                    key={reply._id}
+                                    replies={[]}
+                                    addComment={addComment}
+                                    parentComment={comment._id}
+                                    activeComment={activeComment}
+                                    setActiveComment={setActiveComment}
+                                 />
+                              ))}
+                           </div>
+                        )}
                      </div>
                   )}
                </div>
