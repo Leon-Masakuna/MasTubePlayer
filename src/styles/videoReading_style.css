@@ -13,6 +13,10 @@
    margin-bottom: 10px;
 } */
 
+.replies-number {
+   cursor: pointer;
+}
+
 .fa-solid:hover {
    cursor: pointer;
 }
