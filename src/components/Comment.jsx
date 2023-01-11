@@ -22,6 +22,17 @@ const Comment = ({
       activeComment.id == comment._id
 
    const [commentReplies, setCommentReplies] = useState(false)
+   // const [toggle, setToggle] = useState(false)
+
+   const activeReplying = () => {
+      setActiveComment(
+         /* toggle &&  */ {
+            id: comment._id,
+            type: 'replying',
+         }
+      )
+      /* setToggle(!toggle) */
+   }
 
    const showCommentReplies = () => {
       setCommentReplies(!commentReplies)
@@ -50,15 +61,7 @@ const Comment = ({
                   <Dislike comment={likeComments} />
                   <div>
                      {canReply && (
-                        <div
-                           className="reply-button"
-                           onClick={() =>
-                              setActiveComment({
-                                 id: comment._id,
-                                 type: 'replying',
-                              })
-                           }
-                        >
+                        <div className="reply-button" onClick={activeReplying}>
                            Reply
                         </div>
                      )}
@@ -73,14 +76,27 @@ const Comment = ({
                   )}
                   {replies.length > 0 && (
                      <div>
-                        <div className="comment-replies">
+                        <div
+                           className="comment-replies replies-number"
+                           onClick={showCommentReplies}
+                        >
                            <div className="replies">
                               <i
-                                 className="fa-solid fa-square-caret-up"
-                                 onClick={showCommentReplies}
+                                 className={
+                                    commentReplies
+                                       ? 'fa-solid fa-square-caret-down'
+                                       : 'fa-solid fa-square-caret-up'
+                                 }
+                                 // onClick={showCommentReplies}
                               ></i>
                            </div>
-                           <div>{replies.length} replies</div>
+                           <div
+                              className="replies-number"
+                              // onClick={showCommentReplies}
+                           >
+                              {replies.length}{' '}
+                              {replies.length < 2 ? 'reply' : 'replies'}
+                           </div>
                         </div>
                         {commentReplies && (
                            <div className="replies-section">
