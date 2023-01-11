@@ -60,20 +60,27 @@ const Comments = ({ currentUserId, videoId }) => {
          userName: localStorage.getItem('userName'),
          userImage: localStorage.getItem('imageUrl'),
          parentComment: parentComment,
-         // socketID: socket.id,
       })
       setActiveComment(null)
 
-      if (parentComment !== null) {
-         socket.emit('notificationSend', {
-            description: ' has replied to your comment there is ',
-            commentId: backendComments[1]._id,
-            userIdSender: localStorage.getItem('userId'),
-            userIdSenderName: localStorage.getItem('userName'),
-            userIdSenderImage: localStorage.getItem('imageUrl'),
-            userIdReceiver: backendComments[1].userId,
-         })
-      }
+      const comments = backendComments.filter(
+         (comment) => comment._id === parentComment
+      )
+      comments.map((comment) => {
+         if (
+            parentComment !== null &&
+            comment.userId !== localStorage.getItem('userId')
+         ) {
+            socket.emit('notificationSend', {
+               description: ' has replied to your comment there is ',
+               commentId: comment._id,
+               userIdSender: localStorage.getItem('userId'),
+               userIdSenderName: localStorage.getItem('userName'),
+               userIdSenderImage: localStorage.getItem('imageUrl'),
+               userIdReceiver: comment.userId,
+            })
+         }
+      })
    }
 
    return (
