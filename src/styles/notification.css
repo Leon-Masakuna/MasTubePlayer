@@ -7,7 +7,7 @@
    border-radius: 5px;
    background-color: rgb(77, 75, 75);
    color: #e7eff3;
-   /* overflow-y: scroll; */
+   overflow-y: scroll;
    border: none;
    margin-top: 91vh;
    position: fixed;
@@ -26,10 +26,17 @@
 }
 
 .popup-head {
-   width: 100%;
+   width: 70vh;
    display: flex;
    flex-direction: row;
    justify-content: space-between;
+   position: fixed;
+   background-color: rgb(77, 75, 75);
+   padding-right: 10px;
+}
+
+.popup-messages {
+   margin-top: 70px;
 }
 
 .popup-head:hover {
@@ -57,32 +64,10 @@
    font-size: 14px;
 }
 
-/* .overlay {
-   width: 100vw;
-   height: 100vh;
-   top: 0;
-   left: 0;
-   right: 0;
-   bottom: 0;
-   position: fixed;
-   background-color: rgba(49, 49, 49, 0.8);
-} */
-
 .notification:hover,
 .popup-msg-text:hover {
    cursor: pointer;
 }
-
-/* width
-#pop-up::-webkit-scrollbar {
-   width: 10px;
-}
-
-Handle 
-#pop-up::-webkit-scrollbar-thumb {
-   background: #888;
-   border-radius: 10px;
-}*/
 
 .close-button:hover {
    cursor: pointer;

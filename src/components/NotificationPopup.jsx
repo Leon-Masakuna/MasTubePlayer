@@ -38,18 +38,20 @@ const NotificationPopup = ({ showPopUp, notifications }) => {
                <i className="fa-solid fa-circle-xmark close-button"></i>
             </h1>
          </div>
-         {Rings.map((notification) => {
-            return (
-               <HashLink
-                  onClick={showPopUp}
-                  key={notification._id}
-                  to={`/videoplay/#${notification.commentId}`}
-                  className="hashlink"
-               >
-                  <Message notification={notification} />
-               </HashLink>
-            )
-         })}
+         <div className="popup-messages">
+            {Rings.map((notification) => {
+               return (
+                  <HashLink
+                     onClick={showPopUp}
+                     key={notification._id}
+                     to={`/videoplay/#${notification.commentId}`}
+                     className="hashlink"
+                  >
+                     <Message notification={notification} />
+                  </HashLink>
+               )
+            })}
+         </div>
       </div>
    )
 }
