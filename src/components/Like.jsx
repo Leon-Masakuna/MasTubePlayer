@@ -4,6 +4,7 @@ import React, { useState, useEffect } from 'react'
 const socket = socketIO.connect('http://localhost:8100')
 const Like = ({ comment }) => {
    const [likeCounts, setLikeCounts] = useState([])
+   const [comments, setComments] = useState(comment)
 
    const Likes = likeCounts.filter(
       (likeCount) => likeCount.commentId === comment._id
@@ -12,7 +13,7 @@ const Like = ({ comment }) => {
    const getLikes = () => {
       socket.emit('getLikes', {})
    }
-   // console.log('likes : ', likeCounts)
+   // console.log('likes : ', Likes)
 
    useEffect(() => {
       getLikes()
@@ -28,14 +29,16 @@ const Like = ({ comment }) => {
          userId: localStorage.getItem('userId'),
       })
 
-      socket.emit('notificationSend', {
-         description: ' has liked your comment there is ',
-         commentId: comment._id,
-         userIdSender: localStorage.getItem('userId'),
-         userIdSenderName: localStorage.getItem('userName'),
-         userIdSenderImage: localStorage.getItem('imageUrl'),
-         userIdReceiver: comment.userId,
-      })
+      if (comment.userId !== localStorage.getItem('userId')) {
+         socket.emit('notificationSend', {
+            description: ' has liked your comment there is ',
+            commentId: comment._id,
+            userIdSender: localStorage.getItem('userId'),
+            userIdSenderName: localStorage.getItem('userName'),
+            userIdSenderImage: localStorage.getItem('imageUrl'),
+            userIdReceiver: comment.userId,
+         })
+      }
 
       /* socket.emit('likeDeleted', (id) => {
          id == likeCounts._id
