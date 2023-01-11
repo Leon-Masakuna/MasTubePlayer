@@ -34,7 +34,9 @@ const Notification = () => {
       <>
          <div className="notification" onClick={showPopUp}>
             <i className="fa-solid fa-bell fa-comment" onClick={showPopUp}></i>
-            <span className="counter">{Rings.length}</span>
+            <span className="counter">
+               {Rings.length <= 9 ? Rings.length : '9+'}
+            </span>
          </div>
          {modal &&
             notifications.map(() => {
